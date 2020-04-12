@@ -7,6 +7,7 @@ class Service extends Component {
         data: null,
       };
     }
+    
     componentDidMount() {
       
     }
@@ -25,54 +26,78 @@ class Service extends Component {
                     </div>
                 </nav>
             </header>
-
-            <section class="page-top-section set-bg" style={{backgroundImage:"url(img/plant.jpg)"}}>
-                <div class="page-top-warp">
-                    
-                </div>
-            </section>
-
             <section class="blog-section spad">
                 <div class="container">
                     <div class="blog-item feature-blog;">
-                            <div class="col-lg-6">
-                                <div class="blog-text">
-                                    <h2>Carlos Miguel</h2>
-                                    <h4>Canalizador</h4>
-                                    <div class="row">
-                                        <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-                                            <div class="pf-box">
-                                                <h6>Avaliação</h6>
-                                                <p>4,6/5</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-                                            <div class="pf-box" style={{marginLeft: 30}}>
-                                                <h6>Zona</h6>
-                                                <p>Aveiro</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-                                            <div class="pf-box" style={{marginLeft: 30}}>
-                                                <h6>Estado</h6>
-                                                <p>Disponível</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6">
+                        <div class="container emp-profile">
+                            <form method="post">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="profile-img">
                                             <img src="img/person1.jpeg"/>
                                         </div>
                                     </div>
-                                    <div class="pf-box">
-                                        <h6>Preço</h6>
-                                        <p>Sujeito a orçamento</p>
+                                    <div class="col-md-6">
+                                        <div class="profile-head">
+                                                    <h5>name</h5>
+                                                    <h6>service</h6>
+                                                    <p class="proile-rating">Avaliação : <span>evaluation</span></p>
+                                            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                                <li class="nav-item">
+                                                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Sobre</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Comentários</a>
+                                                </li>
+                                            </ul>
+                                        </div>
                                     </div>
-                                    <div class="pf-box">
-                                        <h6>Observações</h6>
-                                        <p> - </p>
-                                    </div>	
-                                    <button class="site-btn">Contactar</button>		  
                                 </div>
-                            </div>	
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Contactar"/>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="tab-content profile-tab" id="myTabContent">
+                                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label>Área</label>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <p>area</p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label>Estado</label>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <p>state</p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label>Preço</label>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <p>price</p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label>Observações</label>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <p>obs</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>           
+                        </div>	
                     </div>
 
                     <div class="row bootstrap snippets">
@@ -89,7 +114,7 @@ class Service extends Component {
                                                     <span class="text-muted pull-right">
                                                         <small class="text-muted">há 45 minutos</small>
                                                     </span>
-                                                    <strong class="text-success">@Luís Gomes Ribeiro</strong>
+                                                    <strong class="text-success" >@Luís Gomes Ribeiro</strong>
                                                     <p>Excelente profissional</p>
                                                 </div>
                                             </li>
@@ -128,7 +153,7 @@ class Service extends Component {
                         </div>
                     </div>
 
-                    <div class="section-title">
+                    <div class="section-title" style={{marginTop:200}}>
                         <h5>Semelhantes</h5>
                     </div>
                     <div class="row">
@@ -222,7 +247,6 @@ class Service extends Component {
                             </div>
                         </div>
                     </div>
-                    <div class="copyright">Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a></div>
                 </div>
             </footer>
 	    </div>

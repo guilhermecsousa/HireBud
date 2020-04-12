@@ -26,7 +26,7 @@ class Main extends Component {
                 </nav>
             </header>
 
-            <section class="hero-section set-bg" style={{backgroundImage:"url(img/plant.jpg)"}}>
+            <section class="hero-section set-bg" style={{backgroundImage:"url(img/wood2.jpg)"}}>
                 <div class="s01">
                     <form>
                     <div class="inner-form">
@@ -64,7 +64,7 @@ class Main extends Component {
                                 <h3>Maria</h3>
                                 <h5>Babysitter</h5>
                                 <h5>Disponibilidade imediata</h5>
-                                <a href="service.html" class="readmore-btn">Saber mais</a>
+                                <a href="/service" class="readmore-btn">Saber mais</a>
                             </div>
                         </div>
                         <div class="col-lg-4">
@@ -76,7 +76,7 @@ class Main extends Component {
                                 <h3>Zé Carlos</h3>
                                 <h5>Eletricista</h5>
                                 <h5>Disponível mediante marcação</h5>
-                                <a href="service.html" class="readmore-btn">Saber mais</a>
+                                <a href="/service" class="readmore-btn">Saber mais</a>
                             </div>
                         </div>
                         <div class="col-lg-4">
@@ -88,7 +88,7 @@ class Main extends Component {
                                 <h3>Rui Pedro</h3>
                                 <h5>Explicações Matemática</h5>
                                 <h5>Disponível mediante marcação</h5>
-                                <a href="service.html" class="readmore-btn">Saber mais</a>
+                                <a href="/service" class="readmore-btn">Saber mais</a>
                             </div>
                         </div>
                     </div>
@@ -162,7 +162,6 @@ class Main extends Component {
                             </div>
                         </div>
                     </div>
-                    <div class="copyright">Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a></div>
                 </div>
             </footer>
 	    </div>
