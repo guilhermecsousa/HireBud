@@ -1,4 +1,10 @@
 import React, { Component } from 'react';
+import Dropdown from 'react-dropdown';
+import 'react-dropdown/style.css';
+
+const services = ['Babysitter','Canalizador','Carpinteiro','Contabilista','Cuidador','Eletricista','Estucador','Explicador','Passeador de cães','Pedreiro','Segurança'];
+
+const cities = ['Aveiro','Águeda','Ílhavo','Oliveira de Azeméis','Ovar','Santa Maria da Feira'];
 
 class Main extends Component {
     constructor(props) {
@@ -31,10 +37,10 @@ class Main extends Component {
                     <form>
                     <div class="inner-form">
                         <div class="input-field first-wrap">
-                            <input id="service" type="text" placeholder="Serviço" />
+                            <Dropdown options={services} onChange={this._onSelect} value={'Serviço'} placeholder="Serviço"/>;
                         </div>
                         <div class="input-field second-wrap">
-                            <input id="location" type="text" placeholder="Área" />
+                            <Dropdown options={cities} onChange={this._onSelect} value={'Área'} placeholder="Área"/>;
                         </div>
                         <div id="container">
                             <button class="learn-more" href="/list">
