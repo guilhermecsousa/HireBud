@@ -9,15 +9,51 @@ class Main extends Component {
     constructor(props) {
       super(props);
       this.state = {
+        loading: true,
         data: null,
+        service: null,
+        area: null,
       };
     }
     componentDidMount() {
-        
+        fetch('http://localhost:3001/providers')
+        // We get the API response and receive data in JSON format...
+        .then(response => response.json())
+        // ...then we update the users state
+        .then(data =>
+          this.setState({
+            data: data.providers,
+            loading: false,
+          })
+        )
+        // Catch any errors we hit and update the app
+        .catch(error => this.setState({loading: false }));
     }
+    _onSelect (x){
+        console.log(x);
+        this.setState({
+            service:x.value,
+
+        });
+    }
+    _onSelect2(x){
+        console.log(x);
+        this.setState({
+            area:x.value,
+
+        });
+    }
+
+
     render(){
+        if(this.state.loading) return(
+            <a>Loading...</a>
+        );
+
+        else 
+       
         return(
-        <div>           
+            <div>           
             <header class="header-section">
                 <a href="/" class="site-logo">
                     <img src="img/logo.png" style={{width:200}}/>
@@ -25,28 +61,30 @@ class Main extends Component {
                 <nav class="header-nav">
                     <div class="header-right">
                         <div class="user-panel">
-                            <button class="profbutton"><span>Meu perfil</span></button>
+                            <form action="/profile">
+                                <button class="profbutton"><span>Meu perfil</span></button>
+                            </form>
                         </div>
                     </div>
                 </nav>
             </header>
 
-            <section class="hero-section set-bg" style={{backgroundImage:"url(img/wood2.jpg)"}}>
+            <section class="hero-section set-bg" style={{backgroundImage:"url(img/hand.jpg)"}}>
                 <div class="s01">
                     <form>
                     <div class="inner-form">
                         <div class="input-field first-wrap">
-                            <Dropdown options={services} onChange={this._onSelect} value={'Serviço'} placeholder="Serviço"/>;
+                            <Dropdown options={services} onChange={(x)=>this.setState({service:x.value})} value={this.state.service} placeholder="Serviço"/>;
                         </div>
                         <div class="input-field second-wrap">
-                            <Dropdown options={cities} onChange={this._onSelect} value={'Área'} placeholder="Área"/>;
+                            <Dropdown options={cities} onChange={(x)=>this.setState({area:x.value})} value={this.state.area} placeholder="Área"/>;
                         </div>
                         <div id="container">
                             <button class="learn-more" href="/list">
-                            <span class="circle" aria-hidden="true">
-                                <span class="icon arrow"></span>
-                            </span>
-                            <a href="/list" class="button-text">Pesquisar</a>
+                                <span class="circle" aria-hidden="true">
+                                    <span class="icon arrow"></span>
+                                </span>
+                                <a href={"/list?service="+this.state.service+"&area="+this.state.area} class="button-text">Pesquisar</a>
                             </button>
                         </div>                         
                     </div>
@@ -60,42 +98,27 @@ class Main extends Component {
                         <h3>Hoje em destaque:</h3>
                     </div>
                     <div class="row">
-                        <div class="col-lg-4">
-                            <div class="property-item">
-                                <div class="pi-image">
-                                    <img src="img/property/1.jpg"/>
-                                    <div class="pi-badge new">Baixa de preço!</div>
-                                </div>
-                                <h3>Maria</h3>
-                                <h5>Babysitter</h5>
-                                <h5>Disponibilidade imediata</h5>
-                                <a href="/service" class="readmore-btn">Saber mais</a>
-                            </div>
-                        </div>
-                        <div class="col-lg-4">
-                            <div class="property-item">
-                                <div class="pi-image">
-                                    <img src="img/property/2.jpg"/>
-                                    <div class="pi-badge offer">Novo!</div>
-                                </div>
-                                <h3>Zé Carlos</h3>
-                                <h5>Eletricista</h5>
-                                <h5>Disponível mediante marcação</h5>
-                                <a href="/service" class="readmore-btn">Saber mais</a>
-                            </div>
-                        </div>
-                        <div class="col-lg-4">
-                            <div class="property-item">
-                                <div class="pi-image">
-                                    <img src="img/property/3.jpg"/>
-                                    <div class="pi-badge new">Baixa de preço!</div>
-                                </div>
-                                <h3>Rui Pedro</h3>
-                                <h5>Explicações Matemática</h5>
-                                <h5>Disponível mediante marcação</h5>
-                                <a href="/service" class="readmore-btn">Saber mais</a>
-                            </div>
-                        </div>
+                        {this.state.data.map(
+                            user=>{
+                                return(
+                                    <div class="col-lg-4">
+                                        <div class="property-item">
+                                            <div class="pi-image">
+                                                <img src={user.image} style={{width:350, minHeight:250, maxHeight:250}}/>
+                                                <div class="pi-badge new">Baixa de preço!</div>
+                                            </div>
+                                            <h3>{user.name}</h3>
+                                            <h5>{user.service}</h5>
+                                            <h5>{user.state}</h5>
+                                            <a href={"/service?id="+user.id} class="readmore-btn">Saber mais</a>
+                                        </div>
+                                    </div>
+                                );
+                            }
+                        )
+
+                        }
+                        
                     </div>
                 </div>
             </section>
@@ -111,7 +134,9 @@ class Main extends Component {
                         <form class="loan-form">
                             <input type="text" placeholder="Nome"/>
                             <input type="text" placeholder="Serviço"/>
-                            <button class="regbutton"><span>Registar</span></button>
+                            <form action="/regist"> 
+                                <button class="regbutton"><span>Registar</span></button>
+                            </form>       
                         </form>
                     </div>
                 </div>
@@ -170,7 +195,7 @@ class Main extends Component {
                 </div>
             </footer>
 	    </div>
-        );
+        );   
     }
   }
   export default Main;

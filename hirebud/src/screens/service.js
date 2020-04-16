@@ -4,14 +4,33 @@ class Service extends Component {
     constructor(props) {
       super(props);
       this.state = {
+        loading: true,
         data: null,
       };
     }
     
     componentDidMount() {
-      
+        const querystring = window.location.search;
+        var n = new URLSearchParams(querystring).get("id");
+        if(n==null || n=='0') n=1;
+        fetch('http://localhost:3001/provider?id='+n)
+        // We get the API response and receive data in JSON format...
+        .then(response => response.json())
+        // ...then we update the users state
+        .then(data =>
+          this.setState({
+            data: data.providers,
+            loading: false,
+          })
+        )
+        // Catch any errors we hit and update the app
+        .catch(error => this.setState({loading: false }));
     }
     render(){
+        if(this.state.loading) return(
+            <a>Loading...</a>
+        );
+        else
         return(
         <div>
             <header class="header-section">
@@ -21,7 +40,9 @@ class Service extends Component {
                 <nav class="header-nav">
                     <div class="header-right">
                         <div class="user-panel">
-                            <button class="profbutton"><span>Meu perfil</span></button>
+                            <form action="/profile">
+                                <button class="profbutton"><span>Meu perfil</span></button>
+                            </form>
                         </div>
                     </div>
                 </nav>
@@ -39,7 +60,7 @@ class Service extends Component {
                                     </div>
                                     <div class="col-md-6">
                                         <div class="profile-head">
-                                                    <h5>name</h5>
+                                                    <h5>{this.state.data.name}</h5>
                                                     <h6>service</h6>
                                                     <p class="proile-rating">Avaliação : <span>evaluation</span></p>
                                             <ul class="nav nav-tabs" id="myTab" role="tablist">

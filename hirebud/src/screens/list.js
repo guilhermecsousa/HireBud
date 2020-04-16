@@ -25,19 +25,21 @@ class List extends Component {
                 <nav class="header-nav">
                     <div class="header-right">
                         <div class="user-panel">
-                            <button class="profbutton"><span>Meu perfil</span></button>
+                            <form action="/profile">
+                                <button class="profbutton"><span>Meu perfil</span></button>
+                            </form>
                         </div>
                     </div>
                 </nav>
             </header>
 
-            <section class="hero-section set-bg" style={{backgroundImage:"url(img/wood2.jpg)", height:340, paddingTop:140}}>
+            <section class="hero-section set-bg" style={{backgroundImage:"url(img/sky.jpg)", height:340, paddingTop:140}}>
                 <div class="s01">
                     <form>      
-                        <div class="input-field first-wrap" style={{marginBottom:10}}>
+                        <div class="input-field first-wrap" style={{marginBottom:10, width:800}}>
                             <Dropdown options={services} onChange={this._onSelect} value={'Serviço'} placeholder="Serviço"/>
                         </div>
-                        <div class="input-field second-wrap" style={{marginBottom:10}}>
+                        <div class="input-field second-wrap" style={{marginBottom:10, width:800}}>
                             <Dropdown options={cities} onChange={this._onSelect} value={'Área'} placeholder="Área"/>
                         </div>
                         <div id="container">
