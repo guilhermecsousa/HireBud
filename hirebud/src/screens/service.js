@@ -21,7 +21,7 @@ class Service extends Component {
                 <nav class="header-nav">
                     <div class="header-right">
                         <div class="user-panel">
-                            <a href="/profile" class="register">Meu Perfil</a>
+                            <button class="profbutton"><span>Meu perfil</span></button>
                         </div>
                     </div>
                 </nav>

@@ -1614,4 +1614,56 @@ button {
     font-weight: 600;
     color: #FFA114;
 }
+
+/* Register button */
+.regbutton {
+	border-radius: 40px;
+	background-color: rgb(179, 10, 10);
+	color: #FFFFFF;
+	text-align: center;
+	font-size: 18px;
+	width: 600px;
+	transition: all 0.5s;
+	cursor: pointer;
+	margin: 5px;
+  }
+  .regbutton span {
+	cursor: pointer;
+	display: inline-block;
+	position: relative;
+	transition: 0.5s;
+  }
+  .regbutton span:after {
+	content: '\00bb';
+	position: absolute;
+	opacity: 0;
+	top: 0;
+	right: -20px;
+	transition: 0.5s;
+  }
+  .regbutton:hover span {
+	padding-right: 25px;
+  }
+  .regbutton:hover span:after {
+	opacity: 1;
+	right: 0;
+  }
+  /* Profile button */
+  .profbutton {
+	border: 2px solid #FFA114;
+	color: white; 
+	padding: 16px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	font-weight: 500;
+	margin: 4px 2px;
+	transition-duration: 0.4s;
+	cursor: pointer;
+  }  
+  .profbutton:hover {
+	background-color: #FFA114;
+	color: white;
+  }
  

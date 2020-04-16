@@ -3,7 +3,6 @@ import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
 
 const services = ['Babysitter','Canalizador','Carpinteiro','Contabilista','Cuidador','Eletricista','Estucador','Explicador','Passeador de cães','Pedreiro','Segurança'];
-
 const cities = ['Aveiro','Águeda','Ílhavo','Oliveira de Azeméis','Ovar','Santa Maria da Feira'];
 
 class Main extends Component {
@@ -26,7 +25,7 @@ class Main extends Component {
                 <nav class="header-nav">
                     <div class="header-right">
                         <div class="user-panel">
-                            <a href="/profile" class="register">Meu Perfil</a>
+                            <button class="profbutton"><span>Meu perfil</span></button>
                         </div>
                     </div>
                 </nav>
@@ -112,7 +111,7 @@ class Main extends Component {
                         <form class="loan-form">
                             <input type="text" placeholder="Nome"/>
                             <input type="text" placeholder="Serviço"/>
-                            <button class="site-btn">Registar</button>
+                            <button class="regbutton"><span>Registar</span></button>
                         </form>
                     </div>
                 </div>

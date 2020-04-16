@@ -1,4 +1,9 @@
 import React, { Component } from 'react';
+import Dropdown from 'react-dropdown';
+import 'react-dropdown/style.css';
+
+const services = ['Babysitter','Canalizador','Carpinteiro','Contabilista','Cuidador','Eletricista','Estucador','Explicador','Passeador de cães','Pedreiro','Segurança'];
+const cities = ['Aveiro','Águeda','Ílhavo','Oliveira de Azeméis','Ovar','Santa Maria da Feira'];
 
 class List extends Component {
     constructor(props) {
@@ -20,19 +25,34 @@ class List extends Component {
                 <nav class="header-nav">
                     <div class="header-right">
                         <div class="user-panel">
-                            <a href="/profile" class="register">Meu Perfil</a>
+                            <button class="profbutton"><span>Meu perfil</span></button>
                         </div>
                     </div>
                 </nav>
             </header>
 
-            <section class="page-top-section set-bg" style={{backgroundImage:'url(img/plant.jpg)'}}>
-                <div class="page-top-warp">
-                    <h6>resultados da pesquisa,filtros</h6>
+            <section class="hero-section set-bg" style={{backgroundImage:"url(img/wood2.jpg)", height:340, paddingTop:140}}>
+                <div class="s01">
+                    <form>      
+                        <div class="input-field first-wrap" style={{marginBottom:10}}>
+                            <Dropdown options={services} onChange={this._onSelect} value={'Serviço'} placeholder="Serviço"/>
+                        </div>
+                        <div class="input-field second-wrap" style={{marginBottom:10}}>
+                            <Dropdown options={cities} onChange={this._onSelect} value={'Área'} placeholder="Área"/>
+                        </div>
+                        <div id="container">
+                            <button class="learn-more" href="/list">
+                            <span class="circle" aria-hidden="true">
+                                <span class="icon arrow"></span>
+                            </span>
+                            <a href="/list" class="button-text">Pesquisar</a>
+                            </button>
+                        </div>                         
+                    </form>
                 </div>
             </section>
 
-            <section class="search-result-section ">
+            <section class="search-result-section">
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-xl-6 p-0">
