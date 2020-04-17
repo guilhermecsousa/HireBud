@@ -16,7 +16,7 @@ class Service extends Component {
         fetch('http://localhost:3001/provider?id='+n)
         // We get the API response and receive data in JSON format...
         .then(response => response.json())
-        // ...then we update the users state
+        // ...then we update the state
         .then(data =>
           this.setState({
             data: data.providers,
@@ -55,14 +55,14 @@ class Service extends Component {
                                 <div class="row">
                                     <div class="col-md-4">
                                         <div class="profile-img">
-                                            <img src="img/person1.jpeg"/>
+                                            <img src={this.state.data.image}/>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="profile-head">
                                                     <h5>{this.state.data.name}</h5>
-                                                    <h6>service</h6>
-                                                    <p class="proile-rating">Avaliação : <span>evaluation</span></p>
+                                                    <h6>{this.state.data.service}</h6>
+                                                    <p class="proile-rating">Avaliação : <span>{this.state.data.evaluation}</span></p>
                                             <ul class="nav nav-tabs" id="myTab" role="tablist">
                                                 <li class="nav-item">
                                                     <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Sobre</a>
@@ -86,7 +86,7 @@ class Service extends Component {
                                                         <label>Área</label>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <p>area</p>
+                                                        <p>{this.state.data.area}</p>
                                                     </div>
                                                 </div>
                                                 <div class="row">
@@ -94,7 +94,7 @@ class Service extends Component {
                                                         <label>Estado</label>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <p>state</p>
+                                                        <p>{this.state.data.state}</p>
                                                     </div>
                                                 </div>
                                                 <div class="row">
@@ -102,7 +102,7 @@ class Service extends Component {
                                                         <label>Preço</label>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <p>price</p>
+                                                        <p>{this.state.data.price}</p>
                                                     </div>
                                                 </div>
                                                 <div class="row">
@@ -110,7 +110,7 @@ class Service extends Component {
                                                         <label>Observações</label>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <p>obs</p>
+                                                        <p>{this.state.data.obs}</p>
                                                     </div>
                                                 </div>
                                             </div>

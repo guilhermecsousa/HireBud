@@ -13,20 +13,34 @@ class Main extends Component {
         data: null,
         service: null,
         area: null,
+        services: [],
+        cities: [],
       };
     }
     componentDidMount() {
         fetch('http://localhost:3001/providers')
         // We get the API response and receive data in JSON format...
         .then(response => response.json())
-        // ...then we update the users state
+        // ...then we update the state
         .then(data =>
-          this.setState({
-            data: data.providers,
-            loading: false,
-          })
+          
+          fetch('http://localhost:3001/services')
+            .then(response => response.json())
+            .then(data2 =>
+                data2.providers.map(f=>this.state.services.push(f.service)),
+                fetch('http://localhost:3001/cities')
+                    .then(response => response.json())
+                    .then(data3 =>
+                        data3.providers.map(f=>this.state.cities.push(f.area)),
+                            this.setState({
+                                loading: false,  
+                                data: data.providers,
+                            })
+                        )
+                    .catch(error => this.setState({loading: false })),
+            )
+            .catch(error => this.setState({loading: false })),
         )
-        // Catch any errors we hit and update the app
         .catch(error => this.setState({loading: false }));
     }
     _onSelect (x){
@@ -44,15 +58,11 @@ class Main extends Component {
         });
     }
 
-
     render(){
         if(this.state.loading) return(
             <a>Loading...</a>
         );
-
-        else 
-       
-        return(
+        else return(
             <div>           
             <header class="header-section">
                 <a href="/" class="site-logo">
@@ -74,10 +84,10 @@ class Main extends Component {
                     <form>
                     <div class="inner-form">
                         <div class="input-field first-wrap">
-                            <Dropdown options={services} onChange={(x)=>this.setState({service:x.value})} value={this.state.service} placeholder="Serviço"/>;
+                            <Dropdown options={this.state.services} onChange={(x)=>this.setState({service:x.value})} value={this.state.service} placeholder="Serviço"/>;
                         </div>
                         <div class="input-field second-wrap">
-                            <Dropdown options={cities} onChange={(x)=>this.setState({area:x.value})} value={this.state.area} placeholder="Área"/>;
+                            <Dropdown options={this.state.cities} onChange={(x)=>this.setState({area:x.value})} value={this.state.area} placeholder="Área"/>;
                         </div>
                         <div id="container">
                             <button class="learn-more" href="/list">
@@ -105,7 +115,6 @@ class Main extends Component {
                                         <div class="property-item">
                                             <div class="pi-image">
                                                 <img src={user.image} style={{width:350, minHeight:250, maxHeight:250}}/>
-                                                <div class="pi-badge new">Baixa de preço!</div>
                                             </div>
                                             <h3>{user.name}</h3>
                                             <h5>{user.service}</h5>
@@ -116,9 +125,7 @@ class Main extends Component {
                                 );
                             }
                         )
-
-                        }
-                        
+                        }   
                     </div>
                 </div>
             </section>
@@ -159,11 +166,11 @@ class Main extends Component {
                             <div class="footer-widger">
                                 <h2>A Empresa</h2>
                                 <ul>
-                                    <li><a href="#">Sobre</a></li>
-                                    <li><a href="#">Ajuda</a></li>
-                                    <li><a href="#">Contactos</a></li>
-                                    <li><a href="#">Parceiros</a></li>
-                                    <li><a href="#">Carreiras</a></li>
+                                    <li><a>Sobre</a></li>
+                                    <li><a>Ajuda</a></li>
+                                    <li><a>Contactos</a></li>
+                                    <li><a>Parceiros</a></li>
+                                    <li><a>Carreiras</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -171,23 +178,23 @@ class Main extends Component {
                             <div class="footer-widger">
                                 <h2>Para Clientes</h2>
                                 <ul>
-                                    <li><a href="#">Compra Segura</a></li>
-                                    <li><a href="#">Termos de Utilização</a></li>
-                                    <li><a href="#">Política de Privacidade</a></li>
-                                    <li><a href="#">Livro de Reclamações</a></li>
-                                    <li><a href="#">Mobile apps</a></li>
+                                    <li><a>Compra Segura</a></li>
+                                    <li><a>Termos de Utilização</a></li>
+                                    <li><a>Política de Privacidade</a></li>
+                                    <li><a>Livro de Reclamações</a></li>
+                                    <li><a>Mobile apps</a></li>
                                 </ul>
                             </div>
                         </div>
                         <div class="col-lg-2 col-md-3 col-sm-6">
                             <div class="footer-widger">
-                                <h2>Para Fornecedores</h2>
+                                <h2 style={{width:200}}>Para Fornecedores</h2>
                                 <ul>
-                                    <li><a href="#">Como Funciona?</a></li>
-                                    <li><a href="#">Publicidade</a></li>
-                                    <li><a href="#">Tarifário</a></li>
-                                    <li><a href="#">Termos de Utilização</a></li>
-                                    <li><a href="#">Política de Privacidade</a></li>
+                                    <li><a>Como Funciona?</a></li>
+                                    <li><a>Publicidade</a></li>
+                                    <li><a>Tarifário</a></li>
+                                    <li><a>Termos de Utilização</a></li>
+                                    <li><a>Política de Privacidade</a></li>
                                 </ul>
                             </div>
                         </div>

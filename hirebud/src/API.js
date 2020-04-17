@@ -18,6 +18,22 @@ app.use(function(req, res, next) {
     next();
 });
 
+app.get('/cities', function(req, res){
+    var sql = 'SELECT DISTINCT area FROM providers ;';
+    con.query(sql, function (err, result){
+        if (err) throw err;
+        res.json({providers:result});
+    });
+});
+
+app.get('/services', function(req, res){
+    var sql = 'SELECT DISTINCT service FROM providers ;';
+    con.query(sql, function (err, result){
+        if (err) throw err;
+        res.json({providers:result});
+    });
+});
+
 app.get('/providers', function(req, res){
     var sql = "SELECT * FROM providers;";
     con.query(sql, function (err, result){
@@ -30,7 +46,7 @@ app.get('/providers', function(req, res){
     });
 });
 
-app.get('/provider', function(req, res){
+app.get('/provider', function(req, res){ 
     var sql;
     if(req.query.id==null || req.query.id==''){
         sql = "SELECT * FROM providers WHERE id=1;";
@@ -42,5 +58,13 @@ app.get('/provider', function(req, res){
         res.json({providers:result[0]});
     });
 });
+
+app.get('/servlist', function(req, res){
+    var sql = 'SELECT * FROM providers WHERE service="'+req.query.service+'" AND area="'+req.query.area+'";';
+    con.query(sql, function (err, result){
+        if (err) throw err;
+        res.json({providers:result});
+    });
+})
 
 app.listen(port,()=>{console.log('server start')});

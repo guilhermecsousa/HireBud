@@ -9,14 +9,33 @@ class List extends Component {
     constructor(props) {
       super(props);
       this.state = {
+        loading: true,
         data: null,
       };
     }
     componentDidMount() {
-      
+        const querystring = window.location.search;
+        var service = new URLSearchParams(querystring).get("service");
+        var area = new URLSearchParams(querystring).get("area");
+        fetch('http://localhost:3001/servlist?service='+service+'&area='+area)
+        // We get the API response and receive data in JSON format...
+        .then(response => response.json())
+        // ...then we update the state
+        .then(data =>
+          this.setState({
+            data: data.providers,
+            loading: false,
+          })
+          
+        )
+        // Catch any errors we hit and update the app
+        .catch(error => this.setState({loading: false }));
     }
     render(){
-        return(
+        if(this.state.loading) return(
+            <a>Loading...</a>
+        );
+        else return(
         <div>  
             <header class="header-section">
                 <a href="/" class="site-logo">
@@ -60,54 +79,25 @@ class List extends Component {
                         <div class="col-xl-6 p-0">
                             <div class="search-results">
                                 <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="property-item">
-                                            <div class="pi-image">
-                                                <img src="img/property-search/1.jpg"/>
-                                                <div class="pi-badge new">New</div>
-                                            </div>
-                                            <h3>Zé António</h3>
-                                            <h5>Carpinteiro</h5>
-                                            <h7>Disponibilidade imediata</h7>
-                                            <a href="/service" class="readmore-btn">Saber mais</a>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="property-item">
-                                            <div class="pi-image">
-                                                <img src="img/property-search/2.jpg"/>
-                                                <div class="pi-badge offer">Offer</div>
-                                            </div>
-                                            <h3>Luís</h3>
-                                            <h5>Carpinteiro</h5>
-                                            <h7>Disponibilidade imediata</h7>
-                                            <a href="/service" class="readmore-btn">Saber mais</a>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="property-item">
-                                            <div class="pi-image">
-                                                <img src="img/property-search/3.jpg"/>
-                                                <div class="pi-badge new">New</div>
-                                            </div>
-                                            <h3>Rita</h3>
-                                            <h5>Carpinteiro</h5>
-                                            <h7>Disponibilidade imediata</h7>
-                                            <a href="/service" class="readmore-btn">Saber mais</a>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="property-item">
-                                            <div class="pi-image">
-                                                <img src="img/property-search/4.jpg"/>
-                                                <div class="pi-badge offer">Offer</div>
-                                            </div>
-                                            <h3>Rui</h3>
-                                            <h5>Carpinteiro</h5>
-                                            <h7>Disponibilidade imediata</h7>
-                                            <a href="/service" class="readmore-btn">Saber mais</a>
-                                        </div>
-                                    </div>
+                                    
+                                    {this.state.data.map(
+                                        user=>{
+                                            return(    
+                                                <div class="col-md-6">
+                                                    <div class="property-item">
+                                                        <div class="pi-image">
+                                                            <img src={user.image}/>
+                                                        </div>
+                                                        <h3>{user.name}</h3>
+                                                        <h5>{user.service}</h5>
+                                                        <h7>{user.state}</h7>
+                                                        <a href={"/service?id="+user.id} class="readmore-btn">Saber mais</a>
+                                                    </div>
+                                                </div>
+                                            );
+                                        }
+                                    )
+                                    } 
                                 </div>
                                 <button class="site-btn sb-big load-more">Ver mais</button>
                             </div>
