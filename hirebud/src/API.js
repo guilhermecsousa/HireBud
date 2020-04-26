@@ -34,7 +34,7 @@ app.get('/services', function(req, res){
     });
 });
 
-app.get('/providers', function(req, res){
+app.get('/suggested', function(req, res){
     var sql = "SELECT * FROM providers;";
     con.query(sql, function (err, result){
         if (err) throw err;
@@ -67,4 +67,28 @@ app.get('/servlist', function(req, res){
     });
 })
 
-app.listen(port,()=>{console.log('server start')});
+app.get('/similar', function(req, res){
+    var sql = 'SELECT * FROM providers WHERE service="'+req.query.service+'";';
+    con.query(sql, function (err, result){
+        if (err) throw err;
+        if(result.length>=3){
+            var p1 = Math.floor(Math.random()*result.length);
+            var p2 = p1;
+            var p3 = p1;
+            while(p2==p1){
+                p2 = Math.floor(Math.random()*result.length); 
+            }
+            while(p3==p1 || p3==p2){
+                p3 = Math.floor(Math.random()*result.length);
+            }
+            sol = [result[p1],result[p2],result[p3]];
+            console.log(sol);
+            res.json({providers:sol});
+        }
+        else{
+            res.json({providers:result});
+        }    
+    });
+})
+
+app.listen(port,()=>{console.log('Server initialized with success.')});

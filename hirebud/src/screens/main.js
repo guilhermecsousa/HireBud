@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
 
-const services = ['Babysitter','Canalizador','Carpinteiro','Contabilista','Cuidador','Eletricista','Estucador','Explicador','Passeador de cães','Pedreiro','Segurança'];
-const cities = ['Aveiro','Águeda','Ílhavo','Oliveira de Azeméis','Ovar','Santa Maria da Feira'];
-
 class Main extends Component {
     constructor(props) {
       super(props);
@@ -18,26 +15,25 @@ class Main extends Component {
       };
     }
     componentDidMount() {
-        fetch('http://localhost:3001/providers')
-        // We get the API response and receive data in JSON format...
+        fetch('http://localhost:3001/suggested')
         .then(response => response.json())
-        // ...then we update the state
         .then(data =>
           
-          fetch('http://localhost:3001/services')
+            fetch('http://localhost:3001/services')
             .then(response => response.json())
             .then(data2 =>
                 data2.providers.map(f=>this.state.services.push(f.service)),
+                
                 fetch('http://localhost:3001/cities')
-                    .then(response => response.json())
-                    .then(data3 =>
-                        data3.providers.map(f=>this.state.cities.push(f.area)),
-                            this.setState({
-                                loading: false,  
-                                data: data.providers,
-                            })
-                        )
-                    .catch(error => this.setState({loading: false })),
+                .then(response => response.json())
+                .then(data3 =>
+                    data3.providers.map(f=>this.state.cities.push(f.area)),
+                    this.setState({
+                        loading: false,  
+                        data: data.providers,
+                    })
+                )
+                .catch(error => this.setState({loading: false })),
             )
             .catch(error => this.setState({loading: false })),
         )
@@ -84,10 +80,10 @@ class Main extends Component {
                     <form>
                     <div class="inner-form">
                         <div class="input-field first-wrap">
-                            <Dropdown options={this.state.services} onChange={(x)=>this.setState({service:x.value})} value={this.state.service} placeholder="Serviço"/>;
+                            <Dropdown options={this.state.services} onChange={(x)=>this.setState({service:x.value})} value={this.state.service} placeholder="Serviço"/>
                         </div>
                         <div class="input-field second-wrap">
-                            <Dropdown options={this.state.cities} onChange={(x)=>this.setState({area:x.value})} value={this.state.area} placeholder="Área"/>;
+                            <Dropdown options={this.state.cities} onChange={(x)=>this.setState({area:x.value})} value={this.state.area} placeholder="Área"/>
                         </div>
                         <div id="container">
                             <button class="learn-more" href="/list">
@@ -119,7 +115,7 @@ class Main extends Component {
                                             <h3>{user.name}</h3>
                                             <h5>{user.service}</h5>
                                             <h5>{user.state}</h5>
-                                            <a href={"/service?id="+user.id} class="readmore-btn">Saber mais</a>
+                                            <a href={"/service?id="+user.id+"&service="+user.service} class="readmore-btn">Saber mais</a>
                                         </div>
                                     </div>
                                 );

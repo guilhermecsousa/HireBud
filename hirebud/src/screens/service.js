@@ -6,31 +6,39 @@ class Service extends Component {
       this.state = {
         loading: true,
         data: null,
+        data2: null,
       };
     }
     
     componentDidMount() {
         const querystring = window.location.search;
         var n = new URLSearchParams(querystring).get("id");
+        var serv = new URLSearchParams(querystring).get("service");
         if(n==null || n=='0') n=1;
         fetch('http://localhost:3001/provider?id='+n)
-        // We get the API response and receive data in JSON format...
+        
         .then(response => response.json())
-        // ...then we update the state
+        
         .then(data =>
-          this.setState({
-            data: data.providers,
-            loading: false,
-          })
-        )
-        // Catch any errors we hit and update the app
+            fetch('http://localhost:3001/similar?service='+serv)
+            .then(response => response.json())
+            .then(data2 =>
+                this.setState({
+                data2: data2.providers,
+                data: data.providers,
+                loading: false,
+                })
+            )
+            .catch(error => this.setState({loading: false })),
+        ) 
         .catch(error => this.setState({loading: false }));
     }
     render(){
         if(this.state.loading) return(
             <a>Loading...</a>
         );
-        else
+        else{
+        console.log(this.state.data2);
         return(
         <div>
             <header class="header-section">
@@ -75,8 +83,16 @@ class Service extends Component {
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-4">
-                                        <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Contactar"/>
+                                    <svg id="stroke" xmlns="http://www.w3.org/2000/svg" width="0" height="0"><defs><path id="line" d="M2 2c49.7 2.6 100 3.1 150 1.7-46.5 2-93 4.4-139.2 7.3 45.2-1.5 90.6-1.8 135.8-.6" fill="none" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/></defs></svg>
+                                    <div class="container">
+	                                    <a class="btn" href="/">Button
+		                                    <svg class="button-stroke" viewBox="0 0 154 13">
+			                                    <use href="#line"></use>
+		                                    </svg>
+		                                    <svg class="button-stroke" viewBox="0 0 154 13">
+			                                    <use href="#line"></use>
+		                                    </svg>
+	                                    </a>
                                     </div>
                                     <div class="col-md-8">
                                         <div class="tab-content profile-tab" id="myTabContent">
@@ -178,42 +194,24 @@ class Service extends Component {
                         <h5>Semelhantes</h5>
                     </div>
                     <div class="row">
-                        <div class="col-lg-4">
-                            <div class="property-item">
-                                <div class="pi-image">
-                                    <img src="img/property/1.jpg"/>
-                                    <div class="pi-badge new">Baixa de preço!</div>
-                                </div>
-                                <h3>Maria</h3>
-                                <h5>Babysitter</h5>
-                                <h5>Disponibilidade imediata</h5>
-                                <a href="/service" class="readmore-btn">Saber mais</a>
-                            </div>
-                        </div>
-                        <div class="col-lg-4">
-                            <div class="property-item">
-                                <div class="pi-image">
-                                    <img src="img/property/2.jpg"/>
-                                    <div class="pi-badge offer">Novo!</div>
-                                </div>
-                                <h3>Zé Carlos</h3>
-                                <h5>Eletricista</h5>
-                                <h5>Disponível mediante marcação</h5>
-                                <a href="/service" class="readmore-btn">Saber mais</a>
-                            </div>
-                        </div>
-                        <div class="col-lg-4">
-                            <div class="property-item">
-                                <div class="pi-image">
-                                    <img src="img/property/3.jpg"/>
-                                    <div class="pi-badge new">Baixa de preço!</div>
-                                </div>
-                                <h3>Rui Pedro</h3>
-                                <h5>Explicações Matemática</h5>
-                                <h5>Disponível mediante marcação</h5>
-                                <a href="/service" class="readmore-btn">Saber mais</a>
-                            </div>
-                        </div>
+                        {this.state.data2.map(
+                            user=>{
+                                return(
+                                    <div class="col-lg-4">
+                                        <div class="property-item">
+                                            <div class="pi-image">
+                                                <img src={user.image} style={{width:350, minHeight:250, maxHeight:250}}/>
+                                            </div>
+                                            <h3>{user.name}</h3>
+                                            <h5>{user.service}</h5>
+                                            <h5>{user.state}</h5>
+                                            <a href={"/service?id="+user.id+"&service="+user.service} class="readmore-btn">Saber mais</a>
+                                        </div>
+                                    </div>
+                                );
+                            }
+                        )
+                        }   
                     </div>
                 </div>
             </section>
@@ -271,7 +269,7 @@ class Service extends Component {
                 </div>
             </footer>
 	    </div>
-        );
+        );}
     }
   }
   export default Service;
