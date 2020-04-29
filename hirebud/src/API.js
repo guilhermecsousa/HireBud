@@ -82,7 +82,6 @@ app.get('/similar', function(req, res){
                 p3 = Math.floor(Math.random()*result.length);
             }
             sol = [result[p1],result[p2],result[p3]];
-            console.log(sol);
             res.json({providers:sol});
         }
         else{

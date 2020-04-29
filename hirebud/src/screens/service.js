@@ -58,86 +58,57 @@ class Service extends Component {
             <section class="blog-section spad">
                 <div class="container">
                     <div class="blog-item feature-blog;">
-                        <div class="container emp-profile">
-                            <form method="post">
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <div class="profile-img">
-                                            <img src={this.state.data.image}/>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="profile-head">
-                                                    <h5>{this.state.data.name}</h5>
-                                                    <h6>{this.state.data.service}</h6>
-                                                    <p class="proile-rating">Avaliação : <span>{this.state.data.evaluation}</span></p>
-                                            <ul class="nav nav-tabs" id="myTab" role="tablist">
-                                                <li class="nav-item">
-                                                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Sobre</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Comentários</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <svg id="stroke" xmlns="http://www.w3.org/2000/svg" width="0" height="0"><defs><path id="line" d="M2 2c49.7 2.6 100 3.1 150 1.7-46.5 2-93 4.4-139.2 7.3 45.2-1.5 90.6-1.8 135.8-.6" fill="none" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/></defs></svg>
-                                    <div class="container">
-	                                    <a class="btn" href="/">Button
-		                                    <svg class="button-stroke" viewBox="0 0 154 13">
-			                                    <use href="#line"></use>
-		                                    </svg>
-		                                    <svg class="button-stroke" viewBox="0 0 154 13">
-			                                    <use href="#line"></use>
-		                                    </svg>
-	                                    </a>
-                                    </div>
-                                    <div class="col-md-8">
-                                        <div class="tab-content profile-tab" id="myTabContent">
-                                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <label>Área</label>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <p>{this.state.data.area}</p>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <label>Estado</label>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <p>{this.state.data.state}</p>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <label>Preço</label>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <p>{this.state.data.price}</p>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <label>Observações</label>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <p>{this.state.data.obs}</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>           
-                        </div>	
+                    <div class="container emp-profile">
+            <form method="post">
+                <div class="row">
+                    <div class="profile-img">
+                        <img src={this.state.data.image}/>
                     </div>
+                    <div class="col-md-6">
+                        <div class="profile-head">
+                                    <h5>{this.state.data.name}</h5>
+                                    <h6>{this.state.data.service}</h6>
+                                    <p class="proile-rating">Avaliação : <span>{this.state.data.evaluation}</span></p>
+                            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Sobre</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Comentários</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-7" style={{marginLeft:500}}>
+                        <div class="tab-content profile-tab" id="myTabContent">
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                <div class="row">
+                                    <div class="col-md-6"><label>Área</label></div>
+                                    <div class="col-md-6"><p>{this.state.data.area}</p></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6"><label>Preço</label></div>
+                                    <div class="col-md-6"><p>{this.state.data.price}</p></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6"><label>Estado</label></div>
+                                    <div class="col-md-6"><p>{this.state.data.state}</p></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6"><label>Observações</label></div>
+                                    <div class="col-md-6"><p>{this.state.data.obs}</p></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>           
+        </div>	
+    </div>
 
-                    <div class="row bootstrap snippets">
+                <div class="row bootstrap snippets">
                         <div class="col-md-6 col-md-offset-2 col-sm-12">
                             <div class="comment-wrapper" style={{width:900, margin:0}}>
                                 <div class="panel panel-info">
@@ -182,7 +153,7 @@ class Service extends Component {
                                         </ul>				
                                         <textarea class="form-control" placeholder="Deixe o seu comentário" rows="3"></textarea>
                                         <br/>
-                                        <button type="button" class="btn btn-info pull-right">Publicar</button>
+                                        <button type="button" class="btn btn-info pull-right" style={{height:10}}>Publicar</button>
                                         <div class="clearfix"></div>
                                     </div>
                                 </div>
@@ -190,9 +161,7 @@ class Service extends Component {
                         </div>
                     </div>
 
-                    <div class="section-title" style={{marginTop:200}}>
-                        <h5>Semelhantes</h5>
-                    </div>
+                    <div class="section-title" style={{marginTop:200}}><h5>Semelhantes</h5></div>
                     <div class="row">
                         {this.state.data2.map(
                             user=>{
