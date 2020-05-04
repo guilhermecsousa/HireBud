@@ -94,6 +94,15 @@ class List extends Component {
                                                         <a href={"/service?id="+user.id} class="readmore-btn">Saber mais</a>
                                                     </div>
                                                 </div>
+                                            //     <div class="container">
+                                            //     <div class="row">
+                                            //       <div class="col">Column</div>
+                                            //       <div class="col">Column</div>
+                                            //       <div class="w-100"></div>
+                                            //       <div class="col">Column</div>
+                                            //       <div class="col">Column</div>
+                                            //     </div>
+                                            //   </div>
                                             );
                                         }
                                     )

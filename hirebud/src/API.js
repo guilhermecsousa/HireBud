@@ -60,7 +60,17 @@ app.get('/provider', function(req, res){
 });
 
 app.get('/servlist', function(req, res){
-    var sql = 'SELECT * FROM providers WHERE service="'+req.query.service+'" AND area="'+req.query.area+'";';
+    var sql;
+    if(req.query.area=='null' && req.query.service!='null'){
+        sql = 'SELECT * FROM providers WHERE service="'+req.query.service+'";';
+    }
+    else if(req.query.service=='null' && req.query.area!='null'){
+        sql = 'SELECT * FROM providers WHERE area="'+req.query.area+'";';
+    }
+    else{
+        sql = 'SELECT * FROM providers WHERE service="'+req.query.service+'" AND area="'+req.query.area+'";';
+    }
+    
     con.query(sql, function (err, result){
         if (err) throw err;
         res.json({providers:result});
