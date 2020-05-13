@@ -72,47 +72,31 @@ class List extends Component {
                     </form>
                 </div>
             </section>
-
-            <section class="search-result-section">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-xl-6 p-0">
-                            <div class="search-results">
+            <section> 
+                {this.state.data.map(
+                    user=>{
+                        return(    
+                            <div class="container">
                                 <div class="row">
-                                    
-                                    {this.state.data.map(
-                                        user=>{
-                                            return(    
-                                                <div class="col-md-6">
-                                                    <div class="property-item">
-                                                        <div class="pi-image">
-                                                            <img src={user.image}/>
-                                                        </div>
-                                                        <h3>{user.name}</h3>
-                                                        <h5>{user.service}</h5>
-                                                        <h7>{user.state}</h7>
-                                                        <a href={"/service?id="+user.id} class="readmore-btn">Saber mais</a>
-                                                    </div>
+                                    <div class="card">
+                                        <img class="card-img-top" src={user.image} style={{width:350, minHeight:250, maxHeight:250}}/>
+                                        <div class="card-body">
+                                            <h4 class="card-title"><a href="product.html" title="View Product">{user.name}</a></h4>
+                                            <p class="card-text">{user.service}</p>
+                                            <p class="card-text">{user.state}</p>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <a href="#" class="btn btn-success btn-block">Contactar</a>
                                                 </div>
-                                            //     <div class="container">
-                                            //     <div class="row">
-                                            //       <div class="col">Column</div>
-                                            //       <div class="col">Column</div>
-                                            //       <div class="w-100"></div>
-                                            //       <div class="col">Column</div>
-                                            //       <div class="col">Column</div>
-                                            //     </div>
-                                            //   </div>
-                                            );
-                                        }
-                                    )
-                                    } 
+                                            </div>
+                                        </div>
+                                    </div>                                
                                 </div>
-                                <button class="site-btn sb-big load-more">Ver mais</button>
                             </div>
-                        </div>
-                    </div>
-                </div>
+                        );
+                    }
+                )
+                }      
             </section>
 
             <footer class="footer-section">
