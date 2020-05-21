@@ -65,25 +65,30 @@ class Service extends Component {
                         <img src={this.state.data.image}/>
                     </div>
                     <div class="col-md-6">
-                        <div class="profile-head">
-                                    <h5>{this.state.data.name}</h5>
-                                    <h6>{this.state.data.service}</h6>
-                                    <p class="proile-rating">Avaliação : <span>{this.state.data.evaluation}</span></p>
-                            <ul class="nav nav-tabs" id="myTab" role="tablist">
-                                <li class="nav-item">
-                                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Sobre</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Comentários</a>
-                                </li>
-                            </ul>
+                        <div class="row">
+                            <div class="profile-head">
+                                <h5>{this.state.data.name}</h5>
+                                <h6>{this.state.data.service}</h6>
+                                <p class="proile-rating">Avaliação : <span>{this.state.data.evaluation}</span></p>
+                                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="" role="tab" aria-controls="home" aria-selected="true">Sobre</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#comments" role="tab" aria-controls="profile" aria-selected="false">Comentários</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <a href="">
+                                <button type="button" class="btn btn-info btn-circle-xl btn-lg" style={{marginTop:25, marginLeft:180}}><i class="fa fa-phone"></i></button>
+                            </a>
                         </div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-7" style={{marginLeft:500}}>
+                    <div class="col-md-7" style={{marginLeft:480}}>
                         <div class="tab-content profile-tab" id="myTabContent">
-                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                            <div class="tab-pane fade show active"  role="tabpanel" aria-labelledby="home-tab">
                                 <div class="row">
                                     <div class="col-md-6"><label>Área</label></div>
                                     <div class="col-md-6"><p>{this.state.data.area}</p></div>
@@ -105,10 +110,10 @@ class Service extends Component {
                     </div>
                 </div>
             </form>           
-        </div>	
+        </div>
     </div>
-
-                <div class="row bootstrap snippets">
+                <div id="comments"></div>
+                <div class="row bootstrap snippets" style={{marginTop:200}}>
                         <div class="col-md-6 col-md-offset-2 col-sm-12">
                             <div class="comment-wrapper" style={{width:900, margin:0}}>
                                 <div class="panel panel-info">
@@ -153,7 +158,7 @@ class Service extends Component {
                                         </ul>				
                                         <textarea class="form-control" placeholder="Deixe o seu comentário" rows="3"></textarea>
                                         <br/>
-                                        <button type="button" class="btn btn-info pull-right" style={{height:10}}>Publicar</button>
+                                        <button type="button" class="btn btn-info pull-right" style={{height:40}}>Publicar</button>
                                         <div class="clearfix"></div>
                                     </div>
                                 </div>
@@ -161,22 +166,26 @@ class Service extends Component {
                         </div>
                     </div>
 
-                    <div class="section-title" style={{marginTop:200}}><h5>Semelhantes</h5></div>
+                    <div class="section-title-dest" style={{marginTop:200}}><h6>Serviços de <b>{this.state.data.service}</b> semelhantes:</h6></div>
                     <div class="row">
                         {this.state.data2.map(
                             user=>{
                                 return(
-                                    <div class="col-lg-4">
-                                        <div class="property-item">
-                                            <div class="pi-image">
-                                                <img src={user.image} style={{width:350, minHeight:250, maxHeight:250}}/>
+                                    <div class="card" style={{marginRight:28, marginBottom:30}}>
+                                        <img class="card-img-top" src={user.image} style={{width:350, minHeight:250, maxHeight:250}}/>
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col">
+                                                    <h4 class="card-title">{user.name}</h4>
+                                                    <p class="card-text">{user.service}</p>
+                                                    <p class="card-text">{user.state}</p>
+                                                </div>
+                                                <a href={"/service?id="+user.id+"&service="+user.service}>
+                                                    <button type="button" class="btn btn-info btn-circle-xl btn-lg" style={{marginTop:80, marginRight:20}}><i class="fa fa-plus"></i></button>
+                                                </a>
                                             </div>
-                                            <h3>{user.name}</h3>
-                                            <h5>{user.service}</h5>
-                                            <h5>{user.state}</h5>
-                                            <a href={"/service?id="+user.id+"&service="+user.service} class="readmore-btn">Saber mais</a>
                                         </div>
-                                    </div>
+                                    </div>  
                                 );
                             }
                         )

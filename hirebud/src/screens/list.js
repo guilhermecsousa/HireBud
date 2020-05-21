@@ -52,51 +52,35 @@ class List extends Component {
                 </nav>
             </header>
 
-            <section class="hero-section set-bg" style={{backgroundImage:"url(img/sky.jpg)", height:340, paddingTop:140}}>
-                <div class="s01">
-                    <form>      
-                        <div class="input-field first-wrap" style={{marginBottom:10, width:800}}>
-                            <Dropdown options={services} onChange={this._onSelect} value={'Serviço'} placeholder="Serviço"/>
-                        </div>
-                        <div class="input-field second-wrap" style={{marginBottom:10, width:800}}>
-                            <Dropdown options={cities} onChange={this._onSelect} value={'Área'} placeholder="Área"/>
-                        </div>
-                        <div id="container">
-                            <button class="learn-more" href="/list">
-                            <span class="circle" aria-hidden="true">
-                                <span class="icon arrow"></span>
-                            </span>
-                            <a href="/list" class="button-text">Pesquisar</a>
-                            </button>
-                        </div>                         
-                    </form>
-                </div>
+            <section class="hero-section set-bg" style={{backgroundImage:"url(img/sky.jpg)", height:200, paddingTop:140}}>
             </section>
             <section> 
-                {this.state.data.map(
-                    user=>{
-                        return(    
-                            <div class="container">
-                                <div class="row">
-                                    <div class="card">
+                <div class="container">
+                    <div class="row">
+                        {this.state.data.map(
+                            user=>{
+                                return(    
+                                    <div class="card" style={{marginRight:28, marginBottom:30}}>
                                         <img class="card-img-top" src={user.image} style={{width:350, minHeight:250, maxHeight:250}}/>
                                         <div class="card-body">
-                                            <h4 class="card-title"><a href="product.html" title="View Product">{user.name}</a></h4>
-                                            <p class="card-text">{user.service}</p>
-                                            <p class="card-text">{user.state}</p>
                                             <div class="row">
                                                 <div class="col">
-                                                    <a href="#" class="btn btn-success btn-block">Contactar</a>
+                                                    <h4 class="card-title">{user.name}</h4>
+                                                    <p class="card-text">{user.service}</p>
+                                                    <p class="card-text">{user.state}</p>
                                                 </div>
+                                                <a href={"/service?id="+user.id+"&service="+user.service}>
+                                                    <button type="button" class="btn btn-info btn-circle-xl btn-lg" style={{marginTop:80, marginRight:20}}><i class="fa fa-plus"></i></button>
+                                                </a>
                                             </div>
                                         </div>
-                                    </div>                                
-                                </div>
-                            </div>
-                        );
-                    }
-                )
-                }      
+                                    </div>                              
+                                );
+                            }
+                        )
+                        }
+                    </div>
+                </div>      
             </section>
 
             <footer class="footer-section">

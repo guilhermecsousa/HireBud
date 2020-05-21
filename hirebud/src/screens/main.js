@@ -107,17 +107,21 @@ class Main extends Component {
                         {this.state.data.map(
                             user=>{
                                 return(
-                                    <div class="col-lg-4">
-                                        <div class="property-item">
-                                            <div class="pi-image">
-                                                <img src={user.image} style={{width:350, minHeight:250, maxHeight:250}}/>
+                                    <div class="card" style={{marginRight:28, marginBottom:30}}>
+                                        <img class="card-img-top" src={user.image} style={{width:350, minHeight:250, maxHeight:250}}/>
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col">
+                                                    <h4 class="card-title">{user.name}</h4>
+                                                    <p class="card-text">{user.service}</p>
+                                                    <p class="card-text">{user.state}</p>
+                                                </div>
+                                                <a href={"/service?id="+user.id+"&service="+user.service}>
+                                                    <button type="button" class="btn btn-info btn-circle-xl btn-lg" style={{marginTop:80, marginRight:20}}><i class="fa fa-plus"></i></button>
+                                                </a>
                                             </div>
-                                            <h3>{user.name}</h3>
-                                            <h5>{user.service}</h5>
-                                            <h5>{user.state}</h5>
-                                            <a href={"/service?id="+user.id+"&service="+user.service} class="readmore-btn">Saber mais</a>
                                         </div>
-                                    </div>
+                                    </div>  
                                 );
                             }
                         )

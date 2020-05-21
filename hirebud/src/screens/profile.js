@@ -19,20 +19,20 @@ class Profile extends Component {
                     </a>
                 </header>
 
-                <section class="single-property-section spad">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-4 col-md-8 sidebar">
-                                <div class="agent-widget">
-                                    <img src="img/agents/1.jpg"/>
-                                    <div class="aw-text">
-                                        <h4>Christinne James</h4>
-                                        <h6>Real Estate Agent</h6>
-                                        <p>Fusce lobortis a enim eget tempus. Class aptent taciti sociosqu ad litora. Donec eget efficitur ex. Donec eget dolor vitae eros feugiat tristique id vitae massa. </p>
-                                        <a href="#" class="readmore-btn">Contact the agent</a>
+                <section class="myprofile">
+                    <div class="container">    
+                        <div class="jumbotron">
+                            <div class="row">
+                                <div class="col-md-4 col-xs-12 col-sm-6 col-lg-4">
+                                    <img src="img/jorge.jpg"/>
+                                </div>
+                                <div class="col-md-8 col-xs-12 col-sm-6 col-lg-8">
+                                    <div class="container" style={{borderBottom:10}}>
+                                        <h4>Jorge Mendes</h4>
+								        <h6>jorgemendes@hirebud.com</h6>
                                     </div>
                                 </div>
-                            </div>
+                            </div>    
                         </div>
                     </div>
                 </section>

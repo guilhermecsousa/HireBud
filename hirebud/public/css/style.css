@@ -1002,43 +1002,9 @@ Single Property Page
 
 .agent-widget {
 	margin-bottom: 37px;
-}
-
-.agent-widget img {
-	min-width: 100%;
-}
-
-.agent-widget h4 {
-	margin-bottom: 10px;
-}
-
-.agent-widget h6 {
-	color: #6a6a6a;
-	margin-bottom: 25px;
-}
-
-.agent-widget p {
-	margin-bottom: 30px;
-}
-
-.agent-widget .aw-text {
-	padding: 35px 26px 45px;
-	text-align: center;
 	background: #f5f8fa;
 }
 
-.map-widget {
-	position: relative;
-	height: 407px;
-}
-
-.map-widget iframe {
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	left: 0;
-	top: 0;
-}
 
 /* ----------------
 Contact Page
@@ -1419,7 +1385,6 @@ Responsive
 /*Comment box*/
 .comment-wrapper .panel-body {
     max-height:650px;
-	overflow:auto;
 	margin-left: 250px;
 }
 .comment-wrapper .media-list .media img {
@@ -1571,7 +1536,8 @@ button {
 }
 .profile-head .nav-tabs .nav-link.active{
     border: none;
-    border-bottom:2px solid #FFA114;
+	border-bottom:2px solid #FFA114;
+	margin-bottom: 10px;
 }
 .profile-work{
     padding: 14%;
@@ -1652,35 +1618,28 @@ button {
 	background-color: #FFA114;
 	color: white;
   }
-  /* Contact button */
-  .btn {
-	display: inline-block;
-	color: white;
-	min-width: 154px;
-	text-decoration: none;
-	margin-right: 50px;
-	padding: 20px;
-	position: relative;
-	text-align: center;
-  }
-  .btn:hover .button-stroke:nth-child(2) {
-	stroke-dashoffset: 0;
-  }
-  .button-stroke {
-	display: block;
-	width: calc(100% - 40px);
-	height: 20px;
-	stroke: yellow;
-	position: absolute;
-	left: 20px;
-	bottom: -10px;
-	stroke-width: 4;
-  }
-  .button-stroke:nth-child(2) {
-	stroke-dasharray: 650px;
-	stroke-dashoffset: 650px;
-	stroke: #11171a;
-	stroke-width: 5;
-	-webkit-transition: stroke-dashoffset 800ms ease-out;
-	transition: stroke-dashoffset 800ms ease-out;
-  }
+  /* Knowmore button */
+  .btn-circle.btn-xl {
+    width: 70px;
+    height: 70px;
+    padding: 10px 16px;
+    border-radius: 35px;
+    font-size: 24px;
+    line-height: 1.33;
+}
+
+.btn-circle {
+    width: 30px;
+    height: 30px;
+    padding: 6px 0px;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 1.42857;
+}
+/*My Profile*/
+.myprofile {
+	width: 70%;
+	margin-left: 200px;
+	margin-top: 150px;
+} 
