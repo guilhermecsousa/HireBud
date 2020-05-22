@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
+import Cookies from "universal-cookie";
 
 class Main extends Component {
     constructor(props) {
@@ -12,9 +13,12 @@ class Main extends Component {
         area: null,
         services: [],
         cities: [],
+        cookie: null,
       };
     }
     componentDidMount() {
+        const cookies = new Cookies();
+        var cok = cookies.get("id");
         fetch('http://localhost:3001/suggested')
         .then(response => response.json())
         .then(data =>
@@ -31,6 +35,7 @@ class Main extends Component {
                     this.setState({
                         loading: false,  
                         data: data.providers,
+                        cookie: cok,
                     })
                 )
                 .catch(error => this.setState({loading: false })),
@@ -43,14 +48,12 @@ class Main extends Component {
         console.log(x);
         this.setState({
             service:x.value,
-
         });
     }
     _onSelect2(x){
         console.log(x);
         this.setState({
             area:x.value,
-
         });
     }
 
@@ -67,9 +70,17 @@ class Main extends Component {
                 <nav class="header-nav">
                     <div class="header-right">
                         <div class="user-panel">
-                            <form action="/profile">
-                                <button class="profbutton"><span>Meu perfil</span></button>
-                            </form>
+                            <div class="row">
+                                {this.state.cookie==null?
+                                <form action="/login">
+                                    <button class="profbutton"><span>Login</span></button>
+                                </form>
+                                :
+                                <form action={"/profile?id="+this.state.cok}>
+                                    <button class="profbutton"><span>Meu perfil</span></button>
+                                </form>
+                                }
+                            </div>
                         </div>
                     </div>
                 </nav>
@@ -136,15 +147,10 @@ class Main extends Component {
                         <div class="section-title text-white">
                             <h2>Junte-se à equipa</h2>
                             <h5><br/>É fornecedor de um dos serviços abrangidos pela nossa plataforma e gostaria de chegar a mais pessoas?</h5>
-                            <h4><b><br/><br/>Registe-se já!</b></h4>
                         </div>
-                        <form class="loan-form">
-                            <input type="text" placeholder="Nome"/>
-                            <input type="text" placeholder="Serviço"/>
-                            <form action="/regist"> 
-                                <button class="regbutton"><span>Registar</span></button>
-                            </form>       
-                        </form>
+                        <form action="/servreg"> 
+                            <button class="regbutton" style={{marginLeft:470}}><span>Registe-se já!</span></button>
+                        </form>       
                     </div>
                 </div>
             </section>

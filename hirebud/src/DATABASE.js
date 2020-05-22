@@ -18,7 +18,7 @@ con.connect(function(err) {
       if (err) throw err;
       console.log("Providers table created with success.");
     });
-    
+
     //INSERÇÃO DOS VALORES
     var sql = "INSERT INTO providers (name, service, area, state, evaluation, price, obs, image, contact)"+
     " VALUES ('Carlos Ferreira', 'Eletricista', 'Aveiro', 'Disponível' , '4.6/5', 'Sujeito a orçamento', '-' , 'https://www.electricalprosworcester.com/uploads/1/2/4/0/124026970/published/electrician-near-me_1.jpeg?1548172423', '957851463') ";

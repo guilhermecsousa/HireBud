@@ -1,17 +1,39 @@
 import React, { Component } from 'react';
+import Cookies from "universal-cookie";
 
 class Profile extends Component {
     constructor(props) {
       super(props);
       this.state = {
         data: null,
+        id:null,
+        loading: true,
       };
     }
     componentDidMount() {
-      
+        const cookies = new Cookies();
+        var cok = cookies.get("id");
+        fetch('http://localhost:3001/profile?id='+cok)
+        .then(response => response.json())
+        .then(data =>
+            this.setState({
+            data: data.users,
+            loading: false,
+            })
+        )
+        .catch(error => this.setState({loading: false }));
     }
+
+    remove(event){
+        const cookies = new Cookies();
+        cookies.remove("id");
+    }
+
     render(){
-        return(
+        if(this.state.loading) return(
+            <a>Loading...</a>
+        );
+        else return(
             <div>
                 <header class="header-section header-bg-2">
                     <a href="/" class="site-logo">
@@ -20,21 +42,23 @@ class Profile extends Component {
                 </header>
 
                 <section class="myprofile">
-                    <div class="container">    
-                        <div class="jumbotron">
+                    <div class="card" style={{width:600, marginLeft:200, marginBottom:150, marginTop:200}}>      
+                        <div class="card-body">
                             <div class="row">
-                                <div class="col-md-4 col-xs-12 col-sm-6 col-lg-4">
-                                    <img src="img/jorge.jpg"/>
+                                <img class="card-img-top" src="img/avatar.png" style={{width:150, marginLeft:20, marginRight:30}}/>
+                                <div class="col">
+                                    <h4 class="card-title">{this.state.data.name}</h4>
+                                    <p class="card-text">{this.state.data.email}</p>
+                                    <p class="card-text">{this.state.data.area}</p>
                                 </div>
-                                <div class="col-md-8 col-xs-12 col-sm-6 col-lg-8">
-                                    <div class="container" style={{borderBottom:10}}>
-                                        <h4>Jorge Mendes</h4>
-								        <h6>jorgemendes@hirebud.com</h6>
-                                    </div>
+                                <div onClick={this.remove}>
+                                    <a href={"/main"}>
+                                        <button type="button" class="btn btn-info btn-circle-xl btn-lg" style={{marginTop:100, marginRight:20}}><i class="fa fa-sign-out"></i></button>
+                                    </a>
                                 </div>
-                            </div>    
+                            </div>
                         </div>
-                    </div>
+                    </div>  
                 </section>
 
                 <footer class="footer-section">

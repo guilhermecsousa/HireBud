@@ -1,47 +1,55 @@
 import React, { Component } from 'react';
-import {Redirect} from 'react-router-dom';
+import Cookies from "universal-cookie";
 
-class Regist extends Component {
+class Login extends Component {
     constructor(props) {
       super(props);
       this.state = {
         data: null,
-        username: "",
-        area: "",
         email: "",
         password: "",
       };
       this.register = this.register.bind(this);
-      this.user = this.user.bind(this);
-      this.area = this.area.bind(this);
-      this.email = this.email.bind(this);
       this.pass = this.pass.bind(this);
+      this.email = this.email.bind(this);
+      this.isEmpty = this.isEmpty.bind(this);
     }
-
     componentDidMount() {
+      
+    }
+    
+    isEmpty(obj) {
+        for(var key in obj) {
+            if(obj.hasOwnProperty(key))
+                return false;
+        }
+        return true;
     }
 
     register(event){
-        fetch('http://localhost:3001/regist?user='+this.state.username+'&area='+this.state.area+'&email='+this.state.email+'&password='+this.state.password)
-            .then(response => response.json())
-            .then(data => {
-                window.location.href = '/login'
-            })
+        fetch('http://localhost:3001/login?email='+this.state.email+'&pass='+this.state.password)
+                .then(response => response.json())
+                .then(data => {
+                    if(this.isEmpty(data)){
+                        console.log(data);
+                    }else{
+                        const cookies = new Cookies();
+                        let d = new Date();
+                        d.setTime(d.getTime() + (120*60*1000));
+                        cookies.set("id", data.users.id, {path: "/", expires: d});
+                        window.location.href = '/main'
+                    }
+                })
     }
 
-    user(event){
-        this.setState({username:event.target.value});
-    }
-    area(event){
-        this.setState({area:event.target.value});
-    }
     email(event){
         this.setState({email:event.target.value});
     }
+
     pass(event){
         this.setState({password:event.target.value});
-    }    
-
+    }
+    
     render(){
         return(
         <div>           
@@ -50,20 +58,22 @@ class Regist extends Component {
                     <img src="img/logo.png" style={{width:200}}/>
                 </a>
             </header>
+             
             <section class="signup" style={{marginTop:170}}>
                 <div id="login-box">
-                    <div class="left">
-                        <input type="text" name="name" placeholder="Nome" value={this.state.username} onChange={this.user}/>
-                        <input type="text" name="area" placeholder="Área" value={this.state.area} onChange={this.area}/>
+                    <div class="right" style={{marginTop:40}}>
                         <input type="text" name="email" placeholder="Email" value={this.state.email} onChange={this.email}/>
                         <input type="password" name="password" placeholder="Password" value={this.state.password} onChange={this.pass}/>
-                        
-                        <div onClick={this.register} >
-                            <input type="submit" name="signup_submit" value="Registar" />
+                        <div onClick={this.register} style={{marginTop:15}}>
+                            <input type="submit" name="signup_submit" value="Login" style={{marginLeft:35}}/>
                         </div>
+						<div style={{marginTop:30, marginLeft:15}}>
+                            <span class="txt1">Não tem conta?</span>
+                            <a href="/regist" class="txt2"> Registe-se já</a> 
+                        </div>                          
                     </div>
-                    <div class="right">
-                        <img src="img/plant.jpg" style={{}}/>
+                    <div class="left" style={{marginTop:40}}>
+                        <img src="img/plant2.jpg" style={{}}/>
                     </div>
                 </div>
             </section>  
@@ -88,4 +98,4 @@ class Regist extends Component {
     );
 }
 }
-export default Regist;
+export default Login;

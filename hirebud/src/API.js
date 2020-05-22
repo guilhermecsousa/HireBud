@@ -100,4 +100,30 @@ app.get('/similar', function(req, res){
     });
 })
 
+app.get('/regist', function(req, res){
+    var sql = "INSERT INTO users (name, area, email, password) VALUES ('"+req.query.user+"', '"+req.query.area+"', '"+req.query.email+"', '"+req.query.password+"');";
+    con.query(sql, function (err, result) {
+        if (err) throw err;
+        res.json({users:result});
+    });
+})
+
+app.get('/login', function(req, res){ 
+    var sql;
+    sql = "SELECT * FROM users WHERE email='"+req.query.email+"' AND password='"+req.query.pass+"';";
+    con.query(sql, function (err, result){
+        if (err) throw err;
+        res.json({users:result[0]});
+    });
+});
+
+app.get('/profile', function(req, res){ 
+    var sql;
+    sql = "SELECT * FROM users WHERE id='"+req.query.id+"';";
+    con.query(sql, function (err, result){
+        if (err) throw err;
+        res.json({users:result[0]});
+    });
+});
+
 app.listen(port,()=>{console.log('Server initialized with success.')});

@@ -53,6 +53,9 @@ class List extends Component {
             </header>
 
             <section class="hero-section set-bg" style={{backgroundImage:"url(img/sky.jpg)", height:200, paddingTop:140}}>
+            <a href={"/main"}>
+                <button type="button" class="btn btn-info btn-circle-xl btn-lg" style={{marginTop:2, marginLeft:20}}><i class="fa fa-arrow-left"></i></button>
+            </a>
             </section>
             <section> 
                 <div class="container">
