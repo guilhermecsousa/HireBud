@@ -61,10 +61,17 @@ class Regist extends Component {
                                 <input type="text" name="area" placeholder="Área" value={this.state.area} onChange={this.area}/>
                                 <input type="text" name="email" placeholder="Email" value={this.state.email} onChange={this.email}/>
                                 <input type="password" name="password" placeholder="Password" value={this.state.password} onChange={this.pass}/>
-                                
-                            <div onClick={this.register} >
-                                <input type="submit" name="signup_submit" value="Registar" />
-                            </div>
+                                {(this.state.username.length==0 || this.state.area.length==0 || this.state.email.length==0 || this.state.password.length==0)?
+                                    <div >
+                                        
+                                        <input type="submit" name="signup_submit" value="Registar" />
+                                        <p><small><small><i class="fa fa-warning"></i> Por favor preencha todos os campos</small></small></p>
+                                    </div>
+                                :  
+                                    <div onClick={this.register} >
+                                        <input type="submit" name="signup_submit" value="Registar" />
+                                    </div>
+                                }    
                         </div>
                     <div class="right">
                         <img src="img/plant.jpg"/>
