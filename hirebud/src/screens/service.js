@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Cookies from "universal-cookie";
 
 class Service extends Component {
     constructor(props) {
@@ -7,10 +8,13 @@ class Service extends Component {
         loading: true,
         data: null,
         data2: null,
+        cookie: null,
       };
     }
     
     componentDidMount() {
+        const cookies = new Cookies();
+        var cok = cookies.get("id");
         const querystring = window.location.search;
         var n = new URLSearchParams(querystring).get("id");
         var serv = new URLSearchParams(querystring).get("service");
@@ -27,6 +31,7 @@ class Service extends Component {
                 data2: data2.providers,
                 data: data.providers,
                 loading: false,
+                cookie:cok,
                 })
             )
             .catch(error => this.setState({loading: false })),
@@ -48,9 +53,17 @@ class Service extends Component {
                 <nav class="header-nav">
                     <div class="header-right">
                         <div class="user-panel">
-                            <form action="/profile">
-                                <button class="profbutton"><span>Meu perfil</span></button>
-                            </form>
+                        <div class="row">
+                                {this.state.cookie==null?
+                                <form action="/login">
+                                    <button class="profbutton"><span>Login</span></button>
+                                </form>
+                                :
+                                <form action={"/profile?id="+this.state.cok}>
+                                    <button class="profbutton"><span>Meu perfil</span></button>
+                                </form>
+                                }
+                            </div>
                         </div>
                     </div>
                 </nav>
@@ -176,7 +189,9 @@ class Service extends Component {
                                         <div class="card-body">
                                             <div class="row">
                                                 <div class="col">
-                                                    <h4 class="card-title">{user.name}</h4>
+                                                    <a href={"/service?id="+user.id+"&service="+user.service}>
+                                                        <h4 class="card-title">{user.name}</h4>
+                                                    </a>
                                                     <p class="card-text">{user.service}</p>
                                                     <p class="card-text">{user.state}</p>
                                                 </div>
@@ -202,47 +217,14 @@ class Service extends Component {
                                 <div class="about-widget">
                                     <div class="aw-text">
                                         <img src="img/logo.png"/>
-                                        <p>HireBud, uma plataforma que permite a pesquisa e contacto com profissionais das mais diversas áreas, desde o babysitting à contabilidade que estão disponíveis para o ajudar quando precisar!</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-2 col-md-3 col-sm-6" style={{marginRight:50}}>
-                            <div class="footer-widger">
-                                <h2>A Empresa</h2>
-                                <ul>
-                                    <li><a href="#">Sobre</a></li>
-                                    <li><a href="#">Ajuda</a></li>
-                                    <li><a href="#">Contactos</a></li>
-                                    <li><a href="#">Parceiros</a></li>
-                                    <li><a href="#">Carreiras</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-3 col-sm-6" style={{marginRight:60}}>
-                            <div class="footer-widger">
-                                <h2>Para Clientes</h2>
-                                <ul>
-                                    <li><a href="#">Compra Segura</a></li>
-                                    <li><a href="#">Termos de Utilização</a></li>
-                                    <li><a href="#">Política de Privacidade</a></li>
-                                    <li><a href="#">Livro de Reclamações</a></li>
-                                    <li><a href="#">Mobile apps</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-3 col-sm-6">
-                            <div class="footer-widger">
-                                <h2>Para Fornecedores</h2>
-                                <ul>
-                                    <li><a href="#">Como Funciona?</a></li>
-                                    <li><a href="#">Publicidade</a></li>
-                                    <li><a href="#">Tarifário</a></li>
-                                    <li><a href="#">Termos de Utilização</a></li>
-                                    <li><a href="#">Política de Privacidade</a></li>
-                                </ul>
-                            </div>
-                        </div>
+                        <div class="col" style={{marginRight:50, marginBottom:50}}>
+                            <p>HireBud, uma plataforma que permite a pesquisa e contacto com profissionais das mais diversas áreas, desde o babysitting à contabilidade, que estão disponíveis para o ajudar quando precisa!</p>
+                            <small><small>MIECT, Interação Humano-Computador, 2020</small></small>
+                        </div>      
                     </div>
                 </div>
             </footer>

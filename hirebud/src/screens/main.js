@@ -44,7 +44,7 @@ class Main extends Component {
         )
         .catch(error => this.setState({loading: false }));
     }
-    _onSelect (x){
+    _onSelect(x){
         console.log(x);
         this.setState({
             service:x.value,
@@ -123,7 +123,9 @@ class Main extends Component {
                                         <div class="card-body">
                                             <div class="row">
                                                 <div class="col">
-                                                    <h4 class="card-title">{user.name}</h4>
+                                                    <a href={"/service?id="+user.id+"&service="+user.service}>   
+                                                        <h4 class="card-title">{user.name}</h4>
+                                                    </a>
                                                     <p class="card-text">{user.service}</p>
                                                     <p class="card-text">{user.state}</p>
                                                 </div>
@@ -163,47 +165,15 @@ class Main extends Component {
                                 <div class="about-widget">
                                     <div class="aw-text">
                                         <img src="img/logo.png"/>
-                                        <p>HireBud, uma plataforma que permite a pesquisa e contacto com profissionais das mais diversas áreas, desde o babysitting à contabilidade que estão disponíveis para o ajudar quando precisar!</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-2 col-md-3 col-sm-6" style={{marginRight:50}}>
-                            <div class="footer-widger">
-                                <h2>A Empresa</h2>
-                                <ul>
-                                    <li><a>Sobre</a></li>
-                                    <li><a>Ajuda</a></li>
-                                    <li><a>Contactos</a></li>
-                                    <li><a>Parceiros</a></li>
-                                    <li><a>Carreiras</a></li>
-                                </ul>
-                            </div>
+                        <div class="col" style={{marginRight:50, marginBottom:50}}>
+                            <p>HireBud, uma plataforma que permite a pesquisa e contacto com profissionais das mais diversas áreas, desde o babysitting à contabilidade, que estão disponíveis para o ajudar quando precisa!</p>
+                            <small><small>MIECT, Interação Humano-Computador, 2020</small></small>
                         </div>
-                        <div class="col-lg-2 col-md-3 col-sm-6" style={{marginRight:60}}>
-                            <div class="footer-widger">
-                                <h2>Para Clientes</h2>
-                                <ul>
-                                    <li><a>Compra Segura</a></li>
-                                    <li><a>Termos de Utilização</a></li>
-                                    <li><a>Política de Privacidade</a></li>
-                                    <li><a>Livro de Reclamações</a></li>
-                                    <li><a>Mobile apps</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-3 col-sm-6">
-                            <div class="footer-widger">
-                                <h2 style={{width:200}}>Para Fornecedores</h2>
-                                <ul>
-                                    <li><a>Como Funciona?</a></li>
-                                    <li><a>Publicidade</a></li>
-                                    <li><a>Tarifário</a></li>
-                                    <li><a>Termos de Utilização</a></li>
-                                    <li><a>Política de Privacidade</a></li>
-                                </ul>
-                            </div>
-                        </div>
+                        
                     </div>
                 </div>
             </footer>

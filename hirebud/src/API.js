@@ -67,6 +67,9 @@ app.get('/servlist', function(req, res){
     else if(req.query.service=='null' && req.query.area!='null'){
         sql = 'SELECT * FROM providers WHERE area="'+req.query.area+'";';
     }
+    else if(req.query.service=='null' && req.query.area=='null'){
+        sql = 'SELECT * FROM providers;';
+    }
     else{
         sql = 'SELECT * FROM providers WHERE service="'+req.query.service+'" AND area="'+req.query.area+'";';
     }
@@ -118,6 +121,15 @@ app.get('/login', function(req, res){
 });
 
 app.get('/profile', function(req, res){ 
+    var sql;
+    sql = "SELECT * FROM users WHERE id='"+req.query.id+"';";
+    con.query(sql, function (err, result){
+        if (err) throw err;
+        res.json({users:result[0]});
+    });
+});
+
+app.get('/servlist', function(req, res){ 
     var sql;
     sql = "SELECT * FROM users WHERE id='"+req.query.id+"';";
     con.query(sql, function (err, result){

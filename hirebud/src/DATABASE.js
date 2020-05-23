@@ -39,7 +39,7 @@ con.connect(function(err) {
       console.log("1 record inserted  with success.");
     });
     var sql = "INSERT INTO providers (name, service, area, state, evaluation, price, obs, image, contact)"+
-    " VALUES ('Luís Morgado', 'Eletricista', 'Oliveira de Azeméis', 'Disponível' , '4/5', 'Sujeito a orçamento', '-' , 'https://lh3.googleusercontent.com/proxy/lshqpb-5cakxnAhSZtxW-gQqwAMKvUOuka8KUBrpR41RFD3VKOv7s3zrviTwvKbqnKpjPFLgfpOv8m8mwA0Quc7Hkhq4VfsOEQJeW8xMM4j4TfUNOJH6usx6dD6bR7Z4wxpma8Ww-ezRAQ', '957754963') ";
+    " VALUES ('Luís Morgado', 'Eletricista', 'Oliveira de Azeméis', 'Disponível' , '4/5', 'Sujeito a orçamento', 'Especializado em automóveis' , 'https://centeccursos.com/wp-content/uploads/2017/06/ELETRICISTA-DE-AUTOM%C3%93VEIS.jpg', '957754963') ";
     con.query(sql, function (err, result) {
       if (err) throw err;
       console.log("1 record inserted  with success.");
@@ -51,13 +51,13 @@ con.connect(function(err) {
       console.log("1 record inserted  with success.");
     });
     var sql = "INSERT INTO providers (name, service, area, state, evaluation, price, obs, image, contact)"+
-    " VALUES ('Magda Brito', 'Explicador', 'Aveiro', 'Mediante marcação' , '4.3/5', '9€/h', 'Biologia e Geologia' , 'https://lh3.googleusercontent.com/proxy/5ewm5uCmnC4hkQFqLZ-uCb3qWbXs9ilLuaOzk3Sjo5gWGAmRFQo_AidydI5M9ZXk4qmr-lfIMJYf8xLRjDv8rVR698YXoZDvzBuIkMbYJivDCOo-tpyO0GT2NcUO7Xj2GX6qCWewwrW_XvvkxtpfLhxYyQcN-bAvTE3A', '957516285') ";
+    " VALUES ('Magda Brito', 'Explicador', 'Aveiro', 'Mediante marcação' , '4.3/5', '9€/h', 'Biologia e Geologia' , 'https://abrilguiadoestudante.files.wordpress.com/2019/04/orientac3a7c3a3o-como-virar-professora-de-matemc3a1tica.png', '957516285') ";
     con.query(sql, function (err, result) {
       if (err) throw err;
       console.log("1 record inserted  with success.");
     });
     var sql = "INSERT INTO providers (name, service, area, state, evaluation, price, obs, image, contact)"+
-    " VALUES ('Lídia Figueiredo', 'Explicador', 'Aveiro', 'Disponível' , '4.5/5', '10€/h', 'Físico-Química, Física, Química' , 'https://www.educationnext.org/files/ednext-sept19-blog-hess-teacher.png', '986546546') ";
+    " VALUES ('Lídia Figueiredo', 'Explicador', 'Aveiro', 'Disponível' , '4.5/5', '10€/h', 'Físico-Química, Física, Química' , 'https://abrilguiadoestudante.files.wordpress.com/2018/01/professora.jpg', '986546546') ";
     con.query(sql, function (err, result) {
       if (err) throw err;
       console.log("1 record inserted  with success.");
@@ -75,7 +75,7 @@ con.connect(function(err) {
       console.log("1 record inserted  with success.");
     });
     var sql = "INSERT INTO providers (name, service, area, state, evaluation, price, obs, image, contact)"+
-    " VALUES ('Fernanda Gonçalves', 'Babysitter', 'Ílhavo', 'Disponível' , '4/5', '9€/h', 'Possuo carta de condução' , 'https://babyology.com.au/wp-content/uploads/2019/03/babysitter-1.jpg', '997435910') ";
+    " VALUES ('Nanda Gonçalves', 'Babysitter', 'Ílhavo', 'Disponível' , '4/5', '9€/h', 'Possuo carta de condução' , 'https://babyology.com.au/wp-content/uploads/2019/03/babysitter-1.jpg', '997435910') ";
     con.query(sql, function (err, result) {
       if (err) throw err;
       console.log("1 record inserted  with success.");
@@ -93,7 +93,7 @@ con.connect(function(err) {
       console.log("1 record inserted  with success.");
     });
     var sql = "INSERT INTO providers (name, service, area, state, evaluation, price, obs, image, contact)"+
-    " VALUES ('José Luís', 'Carpinteiro', 'Águeda', 'Disponível' , '4/5', 'Sujeito a orçamento', 'Possiblilidade de deslocação na zona de Aveiro' , 'https://us.123rf.com/450wm/lightfieldstudios/lightfieldstudios1702/lightfieldstudios170201066/72370765-carpintero-que-regula-el-avi%C3%B3n-de-la-mano-para-la-artesan%C3%ADa-en-madera-en-el-p%C3%B3rtico.jpg?ver=6', '9545123545') ";
+    " VALUES ('José Luís', 'Carpinteiro', 'Águeda', 'Disponível' , '4/5', 'Sujeito a orçamento', 'Possiblilidade de deslocação na zona de Aveiro' , 'https://www.pontorh.com.br/wp-content/uploads/2016/05/carpinteiro.jpg', '9545123545') ";
     con.query(sql, function (err, result) {
       if (err) throw err;
       console.log("1 record inserted  with success.");
@@ -105,7 +105,7 @@ con.connect(function(err) {
       console.log("1 record inserted  with success.");
     });
     var sql = "INSERT INTO providers (name, service, area, state, evaluation, price, obs, image, contact)"+
-    " VALUES ('Leandro Mateus', 'Carpinteiro', 'Santa Maria da Feira', 'Disponível' , '4/5', 'Sujeito a orçamento', '-' , 'https://image.freepik.com/foto-gratis/hombre-carpintero-guantes-protectores-mirando-smartphone_23-2147944905.jpg', '954789159') ";
+    " VALUES ('Leandro Mateus', 'Carpinteiro', 'Santa Maria da Feira', 'Disponível' , '4/5', 'Sujeito a orçamento', '-' , 'https://i2.wp.com/jbconstrucao.com/wp-content/uploads/2019/11/carpentry2-1024x683-e1573959162281.jpg?fit=640%2C427&ssl=1', '954789159') ";
     con.query(sql, function (err, result) {
       if (err) throw err;
       console.log("1 record inserted  with success.");
@@ -117,13 +117,13 @@ con.connect(function(err) {
       console.log("1 record inserted  with success.");
     });
     var sql = "INSERT INTO providers (name, service, area, state, evaluation, price, obs, image, contact)"+
-    " VALUES ('Valério Santos', 'Canalizador', 'Aveiro', 'Mediante marcação' , '3.7/5', 'Sujeito a orçamento', '-' , 'https://canalizadorsetubal.pt/wp-content/uploads/2018/04/canalizadores_setubal.jpg', '998435916') ";
+    " VALUES ('Valério Santos', 'Canalizador', 'Aveiro', 'Mediante marcação' , '3.7/5', 'Sujeito a orçamento', '-' , 'https://s3-us-west-2.amazonaws.com/jobcorps.gov/styles/fs_bg_img_sm/s3/2019-03/jc-plumbing-6259.jpg?h=09532052&itok=1FTXETpi', '998435916') ";
     con.query(sql, function (err, result) {
       if (err) throw err;
       console.log("1 record inserted  with success.");
     });
     var sql = "INSERT INTO providers (name, service, area, state, evaluation, price, obs, image, contact)"+
-    " VALUES ('João Ribeiro', 'Canalizador', 'Oliveira de Azeméis', 'Mediante marcação' , '4/5', 'Sujeito a orçamento', 'Possiblilidade de deslocação na zona de Aveiro' , 'https://lh3.googleusercontent.com/proxy/3r4Gv3U980yTKCz-a5OoEtb9sVU5G4ObD81FNgRzHiT6mxyAtXP-2_U66Aut5dPd4IQ88gdqMXYmIFaSSwK55nLL2ZFkz60CXUz9lYc2I2q7zH9cKmY', '996159789') ";
+    " VALUES ('João Ribeiro', 'Canalizador', 'Oliveira de Azeméis', 'Mediante marcação' , '4/5', 'Sujeito a orçamento', 'Possiblilidade de deslocação na zona de Aveiro' , 'https://www.fantastichandyman.co.uk/blog/wp-content/uploads/2019/11/How-to-find-a-reliable-plumber-near-me.jpg', '996159789') ";
     con.query(sql, function (err, result) {
       if (err) throw err;
       console.log("1 record inserted  with success.");
@@ -147,7 +147,7 @@ con.connect(function(err) {
       console.log("1 record inserted  with success.");
     });
     var sql = "INSERT INTO providers (name, service, area, state, evaluation, price, obs, image, contact)"+
-    " VALUES ('André Madureira', 'Segurança', 'Aveiro', 'Mediante marcação' , '5/5', '20€/h', 'Possuo licença de porte de arma' , 'https://lh3.googleusercontent.com/proxy/weqhqsNPBLDDXGJn4-UrG3KUzr_kh3Su7LAABoK_-A-Q1zisc5-lVlIMmIWS4thZx7GRFIx1b40_QLAvVwTzsb_SJDTwHndDKjjc-cIoIoPp13647GYY2jU', '969873123') ";
+    " VALUES ('André Madureira', 'Segurança', 'Aveiro', 'Mediante marcação' , '5/5', '20€/h', 'Possuo licença de porte de arma' , 'https://lh3.googleusercontent.com/proxy/L5HwnwMXO7MlCHDTgXa0A8Ag0JYTwhWxwFtosgOGsuzT1zTmOlQHWbu4WJsqxRA5GZxFnTgMpmqwYBvMToFA_ahzrxpQfk6fU83niAQ2HATsbBk5pRhUVbpGnoVBLjnvngcd0qrICf8Cqg', '969873123') ";
     con.query(sql, function (err, result) {
       if (err) throw err;
       console.log("1 record inserted  with success.");
@@ -159,7 +159,7 @@ con.connect(function(err) {
       console.log("1 record inserted  with success.");
     });
     var sql = "INSERT INTO providers (name, service, area, state, evaluation, price, obs, image, contact)"+
-    " VALUES ('Ana Mendes', 'Passeador de cães', 'Aveiro', 'Disponível' , '4.8/5', '4€', '-' , 'https://c7.uihere.com/files/1023/415/584/orthodontic-portal-chile-dental-braces-orthodontics-clear-aligners-tooth-joven-thumb.jpg', '969873333') ";
+    " VALUES ('Ana Mendes', 'Passeador de cães', 'Aveiro', 'Disponível' , '4.8/5', '4€', '-' , 'https://image.freepik.com/fotos-gratis/mulher-bonita-passeando-com-seu-cachorro-no-parque-outono_1303-17253.jpg', '969873333') ";
     con.query(sql, function (err, result) {
       if (err) throw err;
       console.log("1 record inserted  with success.");
@@ -171,13 +171,13 @@ con.connect(function(err) {
       console.log("1 record inserted  with success.");
     });
     var sql = "INSERT INTO providers (name, service, area, state, evaluation, price, obs, image, contact)"+
-    " VALUES ('Gonçalo Agostinho', 'Estucador', 'Aveiro', 'Mediante marcação' , '4.5/5', 'Sujeito a orçamento', 'Possiblilidade de deslocação na zona de Aveiro' , 'https://msestucadores.com/wp-content/uploads/2018/07/mauricio-silva-estudores_projecao-gesso.jpg', '969002145') ";
+    " VALUES ('Ivo Agostinho', 'Estucador', 'Aveiro', 'Mediante marcação' , '4.5/5', 'Sujeito a orçamento', 'Possiblilidade de deslocação na zona de Aveiro' , 'https://msestucadores.com/wp-content/uploads/2018/07/mauricio-silva-estudores_projecao-gesso.jpg', '969002145') ";
     con.query(sql, function (err, result) {
       if (err) throw err;
       console.log("1 record inserted  with success.");
     });
     var sql = "INSERT INTO providers (name, service, area, state, evaluation, price, obs, image, contact)"+
-    " VALUES ('Conceição Saraiva', 'Cuidador', 'Aveiro', 'Mediante marcação' , '4.5/5', '10€/h', '-' , 'https://blog.dilaoliveira.com.br/wp-content/uploads/2018/01/Dila-Home-Care-Imagem.jpg', '966498002') ";
+    " VALUES ('São Saraiva', 'Cuidador', 'Aveiro', 'Mediante marcação' , '4.5/5', '10€/h', '-' , 'https://blog.dilaoliveira.com.br/wp-content/uploads/2018/01/Dila-Home-Care-Imagem.jpg', '966498002') ";
     con.query(sql, function (err, result) {
       if (err) throw err;
       console.log("1 record inserted  with success.");
@@ -189,7 +189,7 @@ con.connect(function(err) {
       console.log("1 record inserted  with success.");
     });
     var sql = "INSERT INTO providers (name, service, area, state, evaluation, price, obs, image, contact)"+
-    " VALUES ('Francisco Rodrigues', 'Pedreiro', 'Oliveira de Azeméis', 'Disponível' , '3.8/5', 'Sujeito a orçamento', '-' , 'https://us.123rf.com/450wm/kadmy/kadmy1506/kadmy150600419/41479556-construction-worker-portrait-of-mason-bricklayer-installing-red-brick-with-trowel-putty-knife-outdoo.jpg?ver=6', '969769988') ";
+    " VALUES ('Francisco Silva', 'Pedreiro', 'Oliveira de Azeméis', 'Disponível' , '3.8/5', 'Sujeito a orçamento', '-' , 'https://us.123rf.com/450wm/kadmy/kadmy1506/kadmy150600419/41479556-construction-worker-portrait-of-mason-bricklayer-installing-red-brick-with-trowel-putty-knife-outdoo.jpg?ver=6', '969769988') ";
     con.query(sql, function (err, result) {
       if (err) throw err;
       console.log("1 record inserted  with success.");

@@ -14,6 +14,7 @@ class Login extends Component {
       this.email = this.email.bind(this);
       this.isEmpty = this.isEmpty.bind(this);
     }
+    
     componentDidMount() {
       
     }
@@ -86,13 +87,17 @@ class Login extends Component {
                                 <div class="about-widget">
                                     <div class="aw-text">
                                         <img src="img/logo.png"/>
-                                        <p>HireBud, uma plataforma que permite a pesquisa e contacto com profissionais das mais diversas áreas, desde o babysitting à contabilidade que estão disponíveis para o ajudar quando precisar!</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        <div class="col" style={{marginRight:50, marginBottom:50}}>
+                            <p>HireBud, uma plataforma que permite a pesquisa e contacto com profissionais das mais diversas áreas, desde o babysitting à contabilidade, que estão disponíveis para o ajudar quando precisa!</p>
+                            <small><small>MIECT, Interação Humano-Computador, 2020</small></small>
+                        </div>
+                        
                     </div>
-                </div>    
+                </div>
             </footer>
         </div>       
     );
