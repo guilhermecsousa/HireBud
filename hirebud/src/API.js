@@ -81,7 +81,7 @@ app.get('/servlist', function(req, res){
 })
 
 app.get('/similar', function(req, res){
-    var sql = 'SELECT * FROM providers WHERE service="'+req.query.service+'";';
+    var sql = 'SELECT * FROM providers WHERE service="'+req.query.service+'" AND NOT id="'+req.query.id+'";';
     con.query(sql, function (err, result){
         if (err) throw err;
         if(result.length>=3){

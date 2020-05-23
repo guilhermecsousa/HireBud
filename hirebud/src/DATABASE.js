@@ -123,7 +123,7 @@ con.connect(function(err) {
       console.log("1 record inserted  with success.");
     });
     var sql = "INSERT INTO providers (name, service, area, state, evaluation, price, obs, image, contact)"+
-    " VALUES ('João Ribeiro', 'Canalizador', 'Oliveira de Azeméis', 'Mediante marcação' , '4/5', 'Sujeito a orçamento', 'Possiblilidade de deslocação na zona de Aveiro' , 'https://www.fantastichandyman.co.uk/blog/wp-content/uploads/2019/11/How-to-find-a-reliable-plumber-near-me.jpg', '996159789') ";
+    " VALUES ('João Ribeiro', 'Canalizador', 'Oliveira de Azeméis', 'Mediante marcação' , '4/5', 'Sujeito a orçamento', 'Possiblilidade de deslocação na zona de Aveiro' , 'https://www.emergencyplumbingmanchester.co.uk/wp-content/uploads/2018/10/QL_LocalPlumber.png', '996159789') ";
     con.query(sql, function (err, result) {
       if (err) throw err;
       console.log("1 record inserted  with success.");
@@ -147,7 +147,7 @@ con.connect(function(err) {
       console.log("1 record inserted  with success.");
     });
     var sql = "INSERT INTO providers (name, service, area, state, evaluation, price, obs, image, contact)"+
-    " VALUES ('André Madureira', 'Segurança', 'Aveiro', 'Mediante marcação' , '5/5', '20€/h', 'Possuo licença de porte de arma' , 'https://lh3.googleusercontent.com/proxy/L5HwnwMXO7MlCHDTgXa0A8Ag0JYTwhWxwFtosgOGsuzT1zTmOlQHWbu4WJsqxRA5GZxFnTgMpmqwYBvMToFA_ahzrxpQfk6fU83niAQ2HATsbBk5pRhUVbpGnoVBLjnvngcd0qrICf8Cqg', '969873123') ";
+    " VALUES ('André Madureira', 'Segurança', 'Aveiro', 'Mediante marcação' , '5/5', '20€/h', 'Possuo licença de porte de arma' , 'https://joborganic.com/wp-content/uploads/2019/07/Security-Guard.jpg', '969873123') ";
     con.query(sql, function (err, result) {
       if (err) throw err;
       console.log("1 record inserted  with success.");

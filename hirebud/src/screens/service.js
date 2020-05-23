@@ -24,7 +24,7 @@ class Service extends Component {
         .then(response => response.json())
         
         .then(data =>
-            fetch('http://localhost:3001/similar?service='+serv)
+            fetch('http://localhost:3001/similar?service='+serv+'&id='+n)
             .then(response => response.json())
             .then(data2 =>
                 this.setState({
@@ -75,7 +75,7 @@ class Service extends Component {
             <form method="post">
                 <div class="row">
                     <div class="profile-img">
-                        <img src={this.state.data.image}/>
+                        <img src={this.state.data.image} style={{minHeight:200, maxHeight:200, minWidth:300, maxWidth:300}}/>
                     </div>
                     <div class="col-md-6">
                         <div class="row">
@@ -92,9 +92,22 @@ class Service extends Component {
                                     </li>
                                 </ul>
                             </div>
-                            <a href="">
-                                <button type="button" class="btn btn-info btn-circle-xl btn-lg" style={{marginTop:25, marginLeft:180}}><i class="fa fa-phone"></i></button>
-                            </a>
+                            {this.state.cookie==null?
+                                <div class="dropdown" style={{marginLeft:320}}>  
+                                    <button type="button" class="btn btn-info btn-circle-xl btn-lg" style={{marginTop:25, marginLeft:180}}><i class="fa fa-phone"></i></button>
+                                    <div class="dropdown-content">
+                                        <p><i class="fa fa-warning"></i> Necessita iniciar sessão para consultar os dados de contacto</p>
+                                    </div>    
+                                </div>
+                                :
+                                <div class="dropdown" style={{marginLeft:320}}>  
+                                    <button type="button" class="btn btn-info btn-circle-xl btn-lg" style={{marginTop:25, marginLeft:180}}><i class="fa fa-phone"></i></button>
+                                    <div class="dropdown-content">
+                                        <p><i class="fa fa-mobile-phone"></i> {this.state.data.contact}</p>
+                                    </div>    
+                                </div>
+                                }
+                                
                         </div>
                     </div>
                 </div>

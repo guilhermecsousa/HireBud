@@ -19,6 +19,7 @@ class Regist extends Component {
     }
 
     componentDidMount() {
+       
     }
 
     register(event){
@@ -40,7 +41,10 @@ class Regist extends Component {
     }
     pass(event){
         this.setState({password:event.target.value});
-    }    
+    }   
+    
+    
+
 
     render(){
         return(
@@ -52,16 +56,16 @@ class Regist extends Component {
             </header>
             <section class="signup" style={{marginTop:170}}>
                 <div id="login-box">
-                    <div class="left">
-                        <input type="text" name="name" placeholder="Nome" value={this.state.username} onChange={this.user}/>
-                        <input type="text" name="area" placeholder="Área" value={this.state.area} onChange={this.area}/>
-                        <input type="text" name="email" placeholder="Email" value={this.state.email} onChange={this.email}/>
-                        <input type="password" name="password" placeholder="Password" value={this.state.password} onChange={this.pass}/>
-                        
-                        <div onClick={this.register} >
-                            <input type="submit" name="signup_submit" value="Registar" />
+                        <div class="left">
+                                <input type="text" name="name" placeholder="Nome" value={this.state.username} onChange={this.user}/>
+                                <input type="text" name="area" placeholder="Área" value={this.state.area} onChange={this.area}/>
+                                <input type="text" name="email" placeholder="Email" value={this.state.email} onChange={this.email}/>
+                                <input type="password" name="password" placeholder="Password" value={this.state.password} onChange={this.pass}/>
+                                
+                            <div onClick={this.register} >
+                                <input type="submit" name="signup_submit" value="Registar" />
+                            </div>
                         </div>
-                    </div>
                     <div class="right">
                         <img src="img/plant.jpg"/>
                     </div>

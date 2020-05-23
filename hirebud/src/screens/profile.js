@@ -48,13 +48,23 @@ class Profile extends Component {
                                 <img class="card-img-top" src="img/avatar.png" style={{width:150, marginLeft:20, marginRight:30}}/>
                                 <div class="col">
                                     <h4 class="card-title">{this.state.data.name}</h4>
-                                    <p class="card-text">{this.state.data.email}</p>
-                                    <p class="card-text">{this.state.data.area}</p>
+                                    <p class="card-text"><i style={{marginRight:10}} class="fa fa-mail-forward"></i>{this.state.data.email}</p>
+                                    <p class="card-text"><i style={{marginRight:10}} class="fa fa-home"></i>{this.state.data.area}</p>
                                 </div>
                                 <div onClick={this.remove}>
                                     <a href={"/main"}>
                                         <button type="button" class="btn btn-info btn-circle-xl btn-lg" style={{marginTop:100, marginRight:20}}><i class="fa fa-sign-out"></i></button>
                                     </a>
+                                </div>
+                                <div class="dropdown" style={{marginLeft:520}}>
+                                        <button type="button" class="btn btn-info btn-circle-xl btn-lg" style={{marginRight:10}}><i class="fa fa-info"></i></button>
+                                        <div class="dropdown-content">
+                                            <p><i class="fa fa-edit"></i> Serviço: -</p>
+                                            <p><i class="fa fa-edit"></i> Estado: -</p>
+                                            <p><i class="fa fa-edit"></i> Preço: -</p>
+                                            <p><i class="fa fa-edit"></i> Obs: -</p>
+                                            <p><i class="fa fa-edit"></i> Contacto: -</p>
+                                        </div>
                                 </div>
                             </div>
                         </div>

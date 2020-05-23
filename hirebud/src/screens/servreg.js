@@ -39,13 +39,17 @@ class ServReg extends Component {
             </header>
             
             
-            <section class="signup" style={{marginTop:200}}>
-                {this.state.cookie==null?    
-                    <form action="/login">
-                        <button class="profbutton" style={{marginLeft:650, marginBottom:100}}><span>Login</span></button>
-                    </form>
+            <section class="signup">
+                {this.state.cookie==null?  
+                    <div style={{marginTop:200}}>
+                        <i style={{marginLeft:320, marginRight:10}} class="fa fa-warning"></i>
+                        <a >Necessita ter sessão iniciada para efetuar o registo como prestador de serviços.</a>  
+                        <form action="/login">
+                            <button class="profbutton2" style={{marginLeft:580, marginBottom:80, marginTop:40}}><span>Login</span></button>
+                        </form>
+                    </div>    
                     :                   
-                    <div id="login-box">
+                    <div id="login-box" style={{marginTop:200}}>
                         <div class="left">
                             <img src="img/plant2.jpg"/>
                         </div>
@@ -77,7 +81,7 @@ class ServReg extends Component {
                         <div class="col" style={{marginRight:50, marginBottom:50}}>
                             <p>HireBud, uma plataforma que permite a pesquisa e contacto com profissionais das mais diversas áreas, desde o babysitting à contabilidade, que estão disponíveis para o ajudar quando precisa!</p>
                             <small><small>MIECT, Interação Humano-Computador, 2020</small></small>
-                        </div>
+                        </div>      
                     </div>
                 </div>
             </footer>
