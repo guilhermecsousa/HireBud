@@ -51,15 +51,16 @@ class ServReg extends Component {
                     :                   
                     <div id="login-box" style={{marginTop:200}}>
                         <div class="left">
-                            <img src="img/plant2.jpg"/>
+                            <img src="img/plant3.jpg" style={{height:300, marginLeft:30 }}/>
                         </div>
                         <div class="right">
                             <input type="text" name="service" placeholder="Serviço" />
                             <input type="text" name="price" placeholder="Preço" />
                             <input type="text" name="contact" placeholder="Contacto" />
                             <input type="text" name="obs" placeholder="Observação" />
-                            
-                            <input type="submit" name="signup_submit" value="Registar Serviço" style={{width:180, marginLeft:20, marginTop:50}}/>
+                            <a href={"/main"}>
+                                <input type="submit" name="signup_submit" value="Registar Serviço" style={{width:180, marginLeft:20, marginTop:50}}/>
+                            </a>    
                         </div>
                         
                     </div>

@@ -58,12 +58,12 @@ class Profile extends Component {
                                 </div>
                                 <div class="dropdown" style={{marginLeft:520}}>
                                         <button type="button" class="btn btn-info btn-circle-xl btn-lg" style={{marginRight:10}}><i class="fa fa-info"></i></button>
-                                        <div class="dropdown-content">
-                                            <p><i class="fa fa-edit"></i> Serviço: -</p>
-                                            <p><i class="fa fa-edit"></i> Estado: -</p>
-                                            <p><i class="fa fa-edit"></i> Preço: -</p>
-                                            <p><i class="fa fa-edit"></i> Obs: -</p>
-                                            <p><i class="fa fa-edit"></i> Contacto: -</p>
+                                        <div class="dropdown-content" style={{width:280}}>
+                                            <p><i class="fa fa-edit"></i><b> Serviço:</b> -</p>
+                                            <p><i class="fa fa-edit"></i><b> Estado:</b> -</p>
+                                            <p><i class="fa fa-edit"></i><b> Preço:</b> -</p>
+                                            <p><i class="fa fa-edit"></i><b> Observações:</b> -</p>
+                                            <p><i class="fa fa-edit"></i><b> Contacto:</b> -</p>
                                         </div>
                                 </div>
                             </div>
