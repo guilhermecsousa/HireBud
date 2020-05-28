@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import {Redirect} from 'react-router-dom';
 
 class Regist extends Component {
     constructor(props) {
@@ -10,6 +9,7 @@ class Regist extends Component {
         area: "",
         email: "",
         password: "",
+        qq: false,
       };
       this.register = this.register.bind(this);
       this.user = this.user.bind(this);
@@ -19,15 +19,23 @@ class Regist extends Component {
     }
 
     componentDidMount() {
-       
     }
 
     register(event){
-        fetch('http://localhost:3001/regist?user='+this.state.username+'&area='+this.state.area+'&email='+this.state.email+'&password='+this.state.password)
+        event.preventDefault();
+        var check = false;
+        var aux = this.state.email.split("@");
+        if (aux.length==2){
+            var aux2 = aux[1].split(".");
+            if (aux2.length>=2) check=true;
+        }
+        if(check){
+           fetch('http://localhost:3001/regist?user='+this.state.username+'&area='+this.state.area+'&email='+this.state.email+'&password='+this.state.password)
             .then(response => response.json())
             .then(data => {
                 window.location.href = '/login'
-            })
+            }) 
+        }
     }
 
     user(event){
@@ -39,13 +47,11 @@ class Regist extends Component {
     email(event){
         this.setState({email:event.target.value});
     }
+        
     pass(event){
         this.setState({password:event.target.value});
     }   
     
-    
-
-
     render(){
         return(
         <div>           
@@ -57,21 +63,13 @@ class Regist extends Component {
             <section class="signup" style={{marginTop:170}}>
                 <div id="login-box">
                         <div class="left">
-                                <input type="text" name="name" placeholder="Nome" value={this.state.username} onChange={this.user}/>
-                                <input type="text" name="area" placeholder="Área" value={this.state.area} onChange={this.area}/>
-                                <input type="text" name="email" placeholder="Email" value={this.state.email} onChange={this.email}/>
-                                <input type="password" name="password" placeholder="Password" value={this.state.password} onChange={this.pass}/>
-                                {(this.state.username.length==0 || this.state.area.length==0 || this.state.email.length==0 || this.state.password.length==0)?
-                                    <div >
-                                        
-                                        <input type="submit" name="signup_submit" value="Registar" />
-                                        <p><small><small><i class="fa fa-warning"></i> Por favor preencha todos os campos</small></small></p>
-                                    </div>
-                                :  
-                                    <div onClick={this.register} >
-                                        <input type="submit" name="signup_submit" value="Registar" />
-                                    </div>
-                                }    
+                            <form onSubmit={this.register}>
+                                <input type="text" name="name" placeholder="Nome" value={this.state.username} onChange={this.user} required/>
+                                <input type="text" name="area" placeholder="Área" value={this.state.area} onChange={this.area} required/>
+                                <input type="email" name="email" placeholder="Email" value={this.state.email} onChange={this.email} required/>
+                                <input type="password" name="password" placeholder="Password" value={this.state.password} onChange={this.pass}required/>
+                                <input type="submit" name="signup_submit" value="Registar" />
+                            </form>          
                         </div>
                     <div class="right">
                         <img src="img/plant.jpg"/>

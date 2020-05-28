@@ -119,7 +119,9 @@ class Main extends Component {
                             user=>{
                                 return(
                                     <div class="card" style={{marginRight:28, marginBottom:30}}>
-                                        <img class="card-img-top" src={user.image} style={{width:350, minHeight:250, maxHeight:250}}/>
+                                        <a href={"/service?id="+user.id+"&service="+user.service}>
+                                            <img class="card-img-top" src={user.image} style={{width:350, minHeight:250, maxHeight:250}}/>
+                                        </a>
                                         <div class="card-body">
                                             <div class="row">
                                                 <div class="col">
@@ -130,7 +132,7 @@ class Main extends Component {
                                                     <p class="card-text">{user.state}</p>
                                                 </div>
                                                 <a href={"/service?id="+user.id+"&service="+user.service}>
-                                                    <button type="button" class="btn btn-info btn-circle-xl btn-lg" style={{marginTop:80, marginRight:20}}><i class="fa fa-plus"></i></button>
+                                                    <button title="Saber mais" type="button" class="btn btn-info btn-circle-xl btn-lg" style={{marginTop:80, marginRight:20}}><i class="fa fa-plus"></i></button>
                                                 </a>
                                             </div>
                                         </div>

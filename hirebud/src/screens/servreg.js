@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Cookies from "universal-cookie";
+import Popup from "reactjs-popup";
 
 class ServReg extends Component {
     constructor(props) {
@@ -9,6 +10,7 @@ class ServReg extends Component {
         data: null,
         cookie: null,
       };
+      
     }
         
     componentDidMount() {
@@ -38,7 +40,6 @@ class ServReg extends Component {
                 </a>
             </header>
             
-            
             <section class="signup">
                 {this.state.cookie==null?  
                     <div style={{marginTop:200}}>
@@ -54,15 +55,19 @@ class ServReg extends Component {
                             <img src="img/plant3.jpg" style={{height:300, marginLeft:30 }}/>
                         </div>
                         <div class="right">
-                            <input type="text" name="service" placeholder="Serviço" />
-                            <input type="text" name="price" placeholder="Preço" />
-                            <input type="text" name="contact" placeholder="Contacto" />
-                            <input type="text" name="obs" placeholder="Observação" />
-                            <a href={"/main"}>
-                                <input type="submit" name="signup_submit" value="Registar Serviço" style={{width:180, marginLeft:20, marginTop:50}}/>
-                            </a>    
+                            <input type="text" name="service" placeholder="Serviço" required/>
+                            <input type="text" name="price" placeholder="Preço" required/>
+                            <input type="text" name="contact" placeholder="Contacto" required/>
+                            <input type="text" name="obs" placeholder="Observação"/>
+                            <Popup trigger={<input type="submit" name="signup_submit" value="Registar Serviço" style={{width:180, marginLeft:20, marginTop:50}}/>} modal>
+                                <div class="col" style={{marginBottom:30, marginTop:30, marginLeft:10, marginRight:10}}>
+                                    <p style={{marginLeft:160}} >Página de prestador de serviços criada!</p>
+                                    <a href={"/main"}>
+                                        <button type="button" class="btn btn-info btn-circle-xl btn-lg" style={{marginTop:10, marginLeft:300}}><i class="fa fa-home"></i></button>
+                                    </a>
+                                </div>      
+                            </Popup> 
                         </div>
-                        
                     </div>
                 }    
             </section>  

@@ -78,7 +78,6 @@ class Login extends Component {
                     </div>
                 </div>
             </section>  
-
             <footer class="footer-section">
                 <div class="container">
                     <div class="row text-white">
@@ -95,7 +94,6 @@ class Login extends Component {
                             <p>HireBud, uma plataforma que permite a pesquisa e contacto com profissionais das mais diversas áreas, desde o babysitting à contabilidade, que estão disponíveis para o ajudar quando precisa!</p>
                             <small><small>MIECT, Interação Humano-Computador, 2020</small></small>
                         </div>
-                        
                     </div>
                 </div>
             </footer>

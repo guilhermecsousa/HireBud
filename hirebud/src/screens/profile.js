@@ -53,7 +53,7 @@ class Profile extends Component {
                                 </div>
                                 <div onClick={this.remove}>
                                     <a href={"/main"}>
-                                        <button type="button" class="btn btn-info btn-circle-xl btn-lg" style={{marginTop:100, marginRight:20}}><i class="fa fa-sign-out"></i></button>
+                                        <button title="LogOut" type="button" class="btn btn-info btn-circle-xl btn-lg" style={{marginTop:100, marginRight:20}}><i class="fa fa-sign-out"></i></button>
                                     </a>
                                 </div>
                                 <div class="dropdown" style={{marginLeft:520}}>

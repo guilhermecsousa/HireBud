@@ -62,7 +62,7 @@ class List extends Component {
 
             <section class="hero-section set-bg" style={{backgroundImage:"url(img/sky.jpg)", height:200, paddingTop:140}}>
             <a href={"/main"}>
-                <button type="button" class="btn btn-info btn-circle-xl btn-lg" style={{marginTop:2, marginLeft:20}}><i class="fa fa-arrow-left"></i></button>
+                <button title="Voltar" type="button" class="btn btn-info btn-circle-xl btn-lg" style={{marginTop:2, marginLeft:20}}><i class="fa fa-arrow-left"></i></button>
             </a>
             </section>
             <section> 
@@ -72,7 +72,9 @@ class List extends Component {
                             user=>{
                                 return(    
                                     <div class="card" style={{marginRight:28, marginBottom:30}}>
-                                        <img class="card-img-top" src={user.image} style={{width:350, minHeight:250, maxHeight:250}}/>
+                                        <a href={"/service?id="+user.id+"&service="+user.service}>
+                                            <img class="card-img-top" src={user.image} style={{width:350, minHeight:250, maxHeight:250}}/>
+                                        </a>
                                         <div class="card-body">
                                             <div class="row">
                                                 <div class="col">
@@ -83,7 +85,7 @@ class List extends Component {
                                                     <p class="card-text">{user.state}</p>
                                                 </div>
                                                 <a href={"/service?id="+user.id+"&service="+user.service}>
-                                                    <button type="button" class="btn btn-info btn-circle-xl btn-lg" style={{marginTop:80, marginRight:20}}><i class="fa fa-plus"></i></button>
+                                                    <button title="Saber mais" type="button" class="btn btn-info btn-circle-xl btn-lg" style={{marginTop:80, marginRight:20}}><i class="fa fa-plus"></i></button>
                                                 </a>
                                             </div>
                                         </div>

@@ -691,6 +691,7 @@ h1 {
 	font-size: 28px;
 }
 input[type="text"],
+input[type="email"],
 input[type="password"] {
 	display: block;
 	box-sizing: border-box;
@@ -706,6 +707,7 @@ input[type="password"] {
 	transition: 0.2s ease;
 }
 input[type="text"]:focus,
+input[type="email"]:focus,
 input[type="password"]:focus {
 	border-bottom: 2px solid #FFA114;
 	color: #FFA114;
