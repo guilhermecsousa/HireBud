@@ -641,7 +641,24 @@ button:hover .button-text {
 .profbutton2:hover {
 	background-color: #FFA114;
 	color: white;
-} 
+}
+.buttonreg {
+	background-color:rgba(255, 161, 20, 0) ;
+	border: none;
+	color: white;
+	padding: 16px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 15px;
+	margin: 4px 2px;
+	transition-duration: 0.4s;
+	cursor: pointer;
+	margin-right: 20px;
+  }
+  .buttonreg:hover {
+	color:#FFA114;
+  }
 /* Knowmore button */
 .btn-circle.btn-xl {
     width: 70px;

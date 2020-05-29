@@ -6,6 +6,7 @@ import Cookies from "universal-cookie";
 class Main extends Component {
     constructor(props) {
       super(props);
+      this.statsRef = React.createRef()
       this.state = {
         loading: true,
         data: null,
@@ -57,6 +58,13 @@ class Main extends Component {
         });
     }
 
+    handleScrollToStats = () => {
+        window.scrollTo({
+            top: this.statsRef.current.offsetTop,
+            behavior: 'smooth'    
+        })
+    }
+
     render(){
         if(this.state.loading) return(
             <a>Loading...</a>
@@ -71,6 +79,7 @@ class Main extends Component {
                     <div class="header-right">
                         <div class="user-panel">
                             <div class="row">
+                                <button class="buttonreg" onClick={this.handleScrollToStats}><span><i class="fa fa-pencil"></i> Registar Serviço</span></button>
                                 {this.state.cookie==null?
                                 <form action="/login">
                                     <button class="profbutton"><span>Login</span></button>
@@ -145,6 +154,7 @@ class Main extends Component {
                 </div>
             </section>
 
+            <div ref={this.statsRef}></div>            
             <section class="loan-section">
                 <div class="loan-warp">
                     <div class="container">

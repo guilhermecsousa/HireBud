@@ -48,7 +48,7 @@ class Profile extends Component {
                                 <img class="card-img-top" src="img/avatar.png" style={{width:150, marginLeft:20, marginRight:30}}/>
                                 <div class="col">
                                     <h4 class="card-title">{this.state.data.name}</h4>
-                                    <p class="card-text"><i style={{marginRight:10}} class="fa fa-mail-forward"></i>{this.state.data.email}</p>
+                                    <p class="card-text"><i style={{marginRight:10}} class="fa fa-envelope"></i>{this.state.data.email}</p>
                                     <p class="card-text"><i style={{marginRight:10}} class="fa fa-home"></i>{this.state.data.area}</p>
                                 </div>
                                 <div onClick={this.remove}>

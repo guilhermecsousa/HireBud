@@ -4,6 +4,7 @@ import Cookies from "universal-cookie";
 class Service extends Component {
     constructor(props) {
       super(props);
+      this.statsRef = React.createRef()
       this.state = {
         loading: true,
         data: null,
@@ -38,6 +39,14 @@ class Service extends Component {
         ) 
         .catch(error => this.setState({loading: false }));
     }
+
+    handleScrollToStats = () => {
+        window.scrollTo({
+            top: this.statsRef.current.offsetTop,
+            behavior: 'smooth'    
+        })
+    }
+
     render(){
         if(this.state.loading) return(
             <a>Loading...</a>
@@ -88,7 +97,7 @@ class Service extends Component {
                                         <a class="nav-link active" id="home-tab" data-toggle="tab" href="" role="tab" aria-controls="home" aria-selected="true">Sobre</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#comments" role="tab" aria-controls="profile" aria-selected="false">Comentários</a>
+                                        <a class="nav-link" id="profile-tab" onClick={this.handleScrollToStats} data-toggle="tab" href="#comments" role="tab" aria-controls="profile" aria-selected="false">Comentários</a>
                                     </li>
                                 </ul>
                             </div>
@@ -138,7 +147,7 @@ class Service extends Component {
             </form>           
         </div>
     </div>
-                <div id="comments"></div>
+                <div ref={this.statsRef}></div>
                 <div class="row bootstrap snippets" style={{marginTop:200}}>
                         <div class="col-md-6 col-md-offset-2 col-sm-12">
                             <div class="comment-wrapper" style={{width:900, margin:0}}>
