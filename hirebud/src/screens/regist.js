@@ -23,19 +23,13 @@ class Regist extends Component {
 
     register(event){
         event.preventDefault();
-        var check = false;
-        var aux = this.state.email.split("@");
-        if (aux.length==2){
-            var aux2 = aux[1].split(".");
-            if (aux2.length>=2) check=true;
-        }
-        if(check){
+       
            fetch('http://localhost:3001/regist?user='+this.state.username+'&area='+this.state.area+'&email='+this.state.email+'&password='+this.state.password)
             .then(response => response.json())
             .then(data => {
                 window.location.href = '/login'
             }) 
-        }
+        
     }
 
     user(event){
@@ -64,10 +58,10 @@ class Regist extends Component {
                 <div id="login-box">
                         <div class="left">
                             <form onSubmit={this.register}>
-                                <input type="text" name="name" placeholder="Nome" value={this.state.username} onChange={this.user} required/>
-                                <input type="text" name="area" placeholder="Área" value={this.state.area} onChange={this.area} required/>
-                                <input type="email" name="email" placeholder="Email" value={this.state.email} onChange={this.email} required/>
-                                <input type="password" name="password" placeholder="Password" value={this.state.password} onChange={this.pass}required/>
+                                <input type="text" name="name" pattern="[a-zA-Z]*" placeholder="Nome" title="Insira um nome válido" value={this.state.username} onChange={this.user} required/>
+                                <input type="text" name="area" pattern="[a-zA-Z]*" placeholder="Área" title="Insira uma região válida" value={this.state.area} onChange={this.area} required/>
+                                <input type="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Insira um email válido" placeholder="Email" value={this.state.email} onChange={this.email} required/>
+                                <input type="password" name="password" pattern=".{8,}" title="Insira oito ou mais caracteres" placeholder="Password (8+ caracteres)" value={this.state.password} onChange={this.pass}required/>
                                 <input type="submit" name="signup_submit" value="Registar" />
                             </form>          
                         </div>

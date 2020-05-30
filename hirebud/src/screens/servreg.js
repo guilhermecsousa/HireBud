@@ -55,9 +55,9 @@ class ServReg extends Component {
                             <img src="img/plant3.jpg" style={{height:300, marginLeft:30 }}/>
                         </div>
                         <div class="right">
-                            <input type="text" name="service" placeholder="Serviço" required/>
+                            <input type="text" name="service" pattern="[a-zA-Z]*" title="Insira um serviço válido" placeholder="Serviço" required/>
                             <input type="text" name="price" placeholder="Preço" required/>
-                            <input type="text" name="contact" placeholder="Contacto" required/>
+                            <input type="text" name="contact" pattern="[0-9]{9}" title="Insira um contacto válido" placeholder="Contacto" required/>
                             <input type="text" name="obs" placeholder="Observação"/>
                             <Popup trigger={<input type="submit" name="signup_submit" value="Registar Serviço" style={{width:180, marginLeft:20, marginTop:50}}/>} modal>
                                 <div class="col" style={{marginBottom:30, marginTop:30, marginLeft:10, marginRight:10}}>

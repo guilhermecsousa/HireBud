@@ -770,14 +770,20 @@ input[type="submit"]:active {
 }
 .txt1 {
 	font-family: 'Roboto', sans-serif;
-	font-size: 12px;
+	font-size: 14px;
 	color: #999999;
 	line-height: 1.5;
 }
 .txt2 {
 	font-family: 'Roboto', sans-serif;
-	font-size: 12px;
+	font-size: 14px;
 	color: #FFA114;
+	line-height: 1.5;
+}
+.txt2 {
+	font-family: 'Roboto', sans-serif;
+	font-size: 16px;
+	color: white;
 	line-height: 1.5;
 }
 /*Profile popup*/
