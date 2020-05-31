@@ -655,10 +655,27 @@ button:hover .button-text {
 	transition-duration: 0.4s;
 	cursor: pointer;
 	margin-right: 20px;
-  }
-  .buttonreg:hover {
+}
+.buttonreg:hover {
 	color:#FFA114;
-  }
+}
+.btndown {
+	background-color:rgba(255, 161, 20, 0) ;
+	border: none;
+	color: rgba(34, 34, 34, 0.83);
+	padding: 16px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 15px;
+	margin: 4px 2px;
+	transition-duration: 0.4s;
+	cursor: pointer;
+	margin-right: 20px;
+}
+.btndown:hover {
+	color:#FFA114;
+}
 /* Knowmore button */
 .btn-circle.btn-xl {
     width: 70px;
@@ -778,12 +795,6 @@ input[type="submit"]:active {
 	font-family: 'Roboto', sans-serif;
 	font-size: 14px;
 	color: #FFA114;
-	line-height: 1.5;
-}
-.txt2 {
-	font-family: 'Roboto', sans-serif;
-	font-size: 16px;
-	color: white;
 	line-height: 1.5;
 }
 /*Profile popup*/
