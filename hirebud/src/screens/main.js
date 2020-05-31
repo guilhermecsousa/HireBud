@@ -98,11 +98,11 @@ class Main extends Component {
             <section class="hero-section set-bg" style={{backgroundImage:"url(img/hand.jpg)"}}>
                 <div class="s01">
                     <form>
-                    <div class="inner-form">
-                        <div class="input-field first-wrap">
+                    <div class="inner-form" style={{height:150}} >
+                        <div style={{marginTop:20}} class="input-field first-wrap">
                             <Dropdown options={this.state.services} onChange={(x)=>this.setState({service:x.value})} value={this.state.service} placeholder="Serviço"/>
                         </div>
-                        <div class="input-field second-wrap">
+                        <div style={{marginTop:20}} class="input-field second-wrap">
                             <Dropdown options={this.state.cities} onChange={(x)=>this.setState({area:x.value})} value={this.state.area} placeholder="Área"/>
                         </div>
                         <div id="container">
