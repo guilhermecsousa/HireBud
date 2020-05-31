@@ -18,18 +18,15 @@ class Regist extends Component {
       this.pass = this.pass.bind(this);
     }
 
-    componentDidMount() {
-    }
+    componentDidMount() {}
 
     register(event){
         event.preventDefault();
-       
-           fetch('http://localhost:3001/regist?user='+this.state.username+'&area='+this.state.area+'&email='+this.state.email+'&password='+this.state.password)
+        fetch('http://localhost:3001/regist?user='+this.state.username+'&area='+this.state.area+'&email='+this.state.email+'&password='+this.state.password)
             .then(response => response.json())
             .then(data => {
                 window.location.href = '/login'
-            }) 
-        
+            })  
     }
 
     user(event){
@@ -51,7 +48,7 @@ class Regist extends Component {
         <div>           
             <header class="header-section">
                 <a href="/" class="site-logo">
-                    <img src="img/logo.png" style={{width:200}}/>
+                    <img src="img/logo.png" style={{width:200}} alt=""/>
                 </a>
             </header>
             <section class="signup" style={{marginTop:170}}>
@@ -66,7 +63,7 @@ class Regist extends Component {
                             </form>          
                         </div>
                     <div class="right">
-                        <img src="img/plant.jpg"/>
+                        <img src="img/plant.jpg" alt=""/>
                     </div>
                 </div>
             </section>  
@@ -78,7 +75,7 @@ class Regist extends Component {
                             <div class="footer-widger">
                                 <div class="about-widget">
                                     <div class="aw-text">
-                                        <img src="img/logo.png"/>
+                                        <img src="img/logo.png" alt=""/>
                                     </div>
                                 </div>
                             </div>
@@ -87,12 +84,11 @@ class Regist extends Component {
                             <p>HireBud, uma plataforma que permite a pesquisa e contacto com profissionais das mais diversas áreas, desde o babysitting à contabilidade, que estão disponíveis para o ajudar quando precisa!</p>
                             <small><small>MIECT, Interação Humano-Computador, 2020</small></small>
                         </div>
-                        
                     </div>
                 </div>
             </footer>
         </div>       
-    );
-}
+        );
+    }
 }
 export default Regist;

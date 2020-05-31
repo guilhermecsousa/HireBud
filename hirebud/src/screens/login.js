@@ -15,9 +15,7 @@ class Login extends Component {
       this.isEmpty = this.isEmpty.bind(this);
     }
     
-    componentDidMount() {
-      
-    }
+    componentDidMount() {}
     
     isEmpty(obj) {
         for(var key in obj) {
@@ -56,7 +54,7 @@ class Login extends Component {
         <div>           
             <header class="header-section">
                 <a href="/" class="site-logo">
-                    <img src="img/logo.png" style={{width:200}}/>
+                    <img src="img/logo.png" style={{width:200}} alt=""/>
                 </a>
             </header>
              
@@ -74,7 +72,7 @@ class Login extends Component {
                         </div>                          
                     </div>
                     <div class="left" style={{marginTop:40}}>
-                        <img src="img/plant2.jpg" style={{}}/>
+                        <img src="img/plant2.jpg" alt=""/>
                     </div>
                 </div>
             </section>  
@@ -85,7 +83,7 @@ class Login extends Component {
                             <div class="footer-widger">
                                 <div class="about-widget">
                                     <div class="aw-text">
-                                        <img src="img/logo.png"/>
+                                        <img src="img/logo.png" alt=""/>
                                     </div>
                                 </div>
                             </div>
@@ -98,7 +96,7 @@ class Login extends Component {
                 </div>
             </footer>
         </div>       
-    );
-}
+        );
+    }
 }
 export default Login;

@@ -10,7 +10,6 @@ class ServReg extends Component {
         data: null,
         cookie: null,
       };
-      
     }
         
     componentDidMount() {
@@ -36,7 +35,7 @@ class ServReg extends Component {
         <div>           
             <header class="header-section">
                 <a href="/" class="site-logo">
-                    <img src="img/logo.png" style={{width:200}}/>
+                    <img src="img/logo.png" style={{width:200}} alt=""/>
                 </a>
             </header>
             
@@ -52,7 +51,7 @@ class ServReg extends Component {
                     :                   
                     <div id="login-box" style={{marginTop:200}}>
                         <div class="left">
-                            <img src="img/plant3.jpg" style={{height:300, marginLeft:30 }}/>
+                            <img src="img/plant3.jpg" style={{height:300, marginLeft:30}} alt=""/>
                         </div>
                         <div class="right">
                             <input type="text" name="service" pattern="[a-zA-Z]*" title="Insira um serviço válido" placeholder="Serviço" required/>
@@ -79,7 +78,7 @@ class ServReg extends Component {
                             <div class="footer-widger">
                                 <div class="about-widget">
                                     <div class="aw-text">
-                                        <img src="img/logo.png"/>
+                                        <img src="img/logo.png" alt=""/>
                                     </div>
                                 </div>
                             </div>
@@ -92,8 +91,7 @@ class ServReg extends Component {
                 </div>
             </footer>
         </div>       
-    );
-}
+        );
+    }
 }
 export default ServReg;
-  

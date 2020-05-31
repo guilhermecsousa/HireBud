@@ -1,3 +1,5 @@
+// js file that manages the communication between HireBud database and web app
+
 const express = require('express');
 const mysql = require('mysql');
 const port = 3001;

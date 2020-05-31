@@ -1,3 +1,5 @@
+// js file that allows to manage the sql inputs needed to create the users table in HireBud database
+
 var mysql = require('mysql');
 
 var con = mysql.createConnection({

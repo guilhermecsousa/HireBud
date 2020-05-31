@@ -10,6 +10,7 @@ class Profile extends Component {
         loading: true,
       };
     }
+
     componentDidMount() {
         const cookies = new Cookies();
         var cok = cookies.get("id");
@@ -37,7 +38,7 @@ class Profile extends Component {
             <div>
                 <header class="header-section header-bg-2">
                     <a href="/" class="site-logo">
-                        <img src="img/logo.png" style={{width:200}}/>
+                        <img src="img/logo.png" style={{width:200}} alt=""/>
                     </a>
                 </header>
 
@@ -45,7 +46,7 @@ class Profile extends Component {
                     <div class="card" style={{width:600, marginLeft:200, marginBottom:150, marginTop:200}}>      
                         <div class="card-body">
                             <div class="row">
-                                <img class="card-img-top" src="img/avatar.png" style={{width:150, marginLeft:20, marginRight:30}}/>
+                                <img class="card-img-top" src="img/avatar.png" style={{width:150, marginLeft:20, marginRight:30}} alt=""/>
                                 <div class="col">
                                     <h4 class="card-title">{this.state.data.name}</h4>
                                     <p class="card-text"><i style={{marginRight:10}} class="fa fa-envelope"></i>{this.state.data.email}</p>
@@ -57,14 +58,14 @@ class Profile extends Component {
                                     </a>
                                 </div>
                                 <div class="dropdown" style={{marginLeft:520}}>
-                                        <button type="button" class="btn btn-info btn-circle-xl btn-lg" style={{marginRight:10}}><i class="fa fa-info"></i></button>
-                                        <div class="dropdown-content" style={{width:280}}>
-                                            <p><i class="fa fa-edit"></i><b> Serviço:</b> -</p>
-                                            <p><i class="fa fa-edit"></i><b> Estado:</b> -</p>
-                                            <p><i class="fa fa-edit"></i><b> Preço:</b> -</p>
-                                            <p><i class="fa fa-edit"></i><b> Observações:</b> -</p>
-                                            <p><i class="fa fa-edit"></i><b> Contacto:</b> -</p>
-                                        </div>
+                                    <button type="button" class="btn btn-info btn-circle-xl btn-lg" style={{marginRight:10}}><i class="fa fa-info"></i></button>
+                                    <div class="dropdown-content" style={{width:280}}>
+                                        <p><i class="fa fa-edit"></i><b> Serviço:</b> -</p>
+                                        <p><i class="fa fa-edit"></i><b> Estado:</b> -</p>
+                                        <p><i class="fa fa-edit"></i><b> Preço:</b> -</p>
+                                        <p><i class="fa fa-edit"></i><b> Observações:</b> -</p>
+                                        <p><i class="fa fa-edit"></i><b> Contacto:</b> -</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -78,7 +79,7 @@ class Profile extends Component {
                             <div class="footer-widger">
                                 <div class="about-widget">
                                     <div class="aw-text">
-                                        <img src="img/logo.png"/>
+                                        <img src="img/logo.png" alt=""/>
                                     </div>
                                 </div>
                             </div>
@@ -87,13 +88,11 @@ class Profile extends Component {
                             <p>HireBud, uma plataforma que permite a pesquisa e contacto com profissionais das mais diversas áreas, desde o babysitting à contabilidade, que estão disponíveis para o ajudar quando precisa!</p>
                             <small><small>MIECT, Interação Humano-Computador, 2020</small></small>
                         </div>
-                        
                     </div>
                 </div>
             </footer>
         </div>       
         );
     }
-  }
-  export default Profile;
-  
+}
+export default Profile;

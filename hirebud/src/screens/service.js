@@ -20,7 +20,7 @@ class Service extends Component {
         const querystring = window.location.search;
         var n = new URLSearchParams(querystring).get("id");
         var serv = new URLSearchParams(querystring).get("service");
-        if(n==null || n=='0') n=1;
+        if(n===null || n==='0') n=1;
         fetch('http://localhost:3001/provider?id='+n)
         
         .then(response => response.json())
@@ -64,7 +64,7 @@ class Service extends Component {
         <div>
             <header class="header-section">
                 <a href="/" class="site-logo">
-                    <img src="img/logo.png" style={{width:200}}/>
+                    <img src="img/logo.png" style={{width:200}} alt=""/>
                 </a>
                 <nav class="header-nav">
                     <div class="header-right">
@@ -91,7 +91,7 @@ class Service extends Component {
                             <form method="post">
                                 <div class="row">
                                     <div class="profile-img">
-                                        <img src={this.state.data.image} style={{minHeight:200, maxHeight:200, minWidth:300, maxWidth:300}}/>
+                                        <img src={this.state.data.image} style={{minHeight:200, maxHeight:200, minWidth:300, maxWidth:300}} alt=""/>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="row">
@@ -163,7 +163,7 @@ class Service extends Component {
                                         <ul class="media-list">
                                             <li class="media">
                                                 <a href="#" class="pull-left">
-                                                    <img src="https://bootdey.com/img/Content/user_1.jpg" class="img-circle" style={{marginRight: 10}}/>
+                                                    <img src="https://bootdey.com/img/Content/user_1.jpg" class="img-circle" style={{marginRight:10}} alt=""/>
                                                 </a>
                                                 <div class="media-body">
                                                     <span class="text-muted pull-right">
@@ -175,7 +175,7 @@ class Service extends Component {
                                             </li>
                                             <li class="media">
                                                 <a href="#" class="pull-left">
-                                                    <img src="https://bootdey.com/img/Content/user_3.jpg" class="img-circle" style={{marginRight: 10}}/>
+                                                    <img src="https://bootdey.com/img/Content/user_3.jpg" class="img-circle" style={{marginRight:10}} alt=""/>
                                                 </a>
                                                 <div class="media-body">
                                                     <span class="text-muted pull-right">
@@ -187,7 +187,7 @@ class Service extends Component {
                                             </li>
                                             <li class="media">
                                                 <a href="#" class="pull-left">
-                                                    <img src="https://bootdey.com/img/Content/user_2.jpg" alt="" class="img-circle" style={{marginRight: 10}}/>
+                                                    <img src="https://bootdey.com/img/Content/user_2.jpg" class="img-circle" style={{marginRight:10}} alt=""/>
                                                 </a>
                                                 <div class="media-body">
                                                     <span class="text-muted pull-right">
@@ -216,7 +216,7 @@ class Service extends Component {
                                 return(
                                     <div class="card" style={{marginRight:28, marginBottom:30}}>
                                         <a href={"/service?id="+user.id+"&service="+user.service}>
-                                            <img class="card-img-top" src={user.image} style={{width:350, minHeight:250, maxHeight:250}}/>
+                                            <img class="card-img-top" src={user.image} style={{width:350, minHeight:250, maxHeight:250}} alt=""/>
                                         </a>
                                         <div class="card-body">
                                             <div class="row">
@@ -239,7 +239,6 @@ class Service extends Component {
                         }   
                     </div>
                 </div>
-                
             </section>
                     
             <footer class="footer-section">
@@ -249,7 +248,7 @@ class Service extends Component {
                             <div class="footer-widger">
                                 <div class="about-widget">
                                     <div class="aw-text">
-                                        <img src="img/logo.png"/>
+                                        <img src="img/logo.png" alt=""/>
                                     </div>
                                 </div>
                             </div>
@@ -264,5 +263,5 @@ class Service extends Component {
 	    </div>
         );}
     }
-  }
-  export default Service;
+}
+export default Service;
