@@ -66,8 +66,9 @@ class Main extends Component {
     }
 
     render(){
+        
         if(this.state.loading) return(
-            <a>Loading...</a>
+            <div class="loader"></div> 
         );
         else return(
             <div>           
