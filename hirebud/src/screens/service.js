@@ -110,21 +110,21 @@ class Service extends Component {
                                             </div>
                                             {this.state.cookie==null?
                                                 <div class="dropdown" style={{marginLeft:320}}>  
-                                                    <button type="button" class="btn btn-info btn-circle-xl btn-lg" style={{width: 150, marginTop:25, marginLeft:100}}><span><i class="fa fa-phone"></i><a class="txt3"> Contacto</a></span></button>
+                                                    <button type="button" class="btn btn-info btn-circle-xl btn-lg" style={{width: 135, marginTop:25, marginLeft:100}}><span><i class="fa fa-phone"></i><a class="txt3"> Contacto</a></span></button>
                                                     <div class="dropdown-content">
                                                         <p><i class="fa fa-warning"></i> Necessita iniciar sessão para consultar os dados de contacto</p>
                                                     </div>    
                                                 </div>
                                                 :
                                                 <div class="dropdown" style={{marginLeft:320}}>  
-                                                    <button type="button" class="btn btn-info btn-circle-xl btn-lg" style={{marginTop:25, marginLeft:180}}><i class="fa fa-phone"></i></button>
+                                                    <button type="button" class="btn btn-info btn-circle-xl btn-lg" style={{width: 135, marginTop:25, marginLeft:100}}><span><i class="fa fa-phone"></i><a class="txt3"> Contacto</a></span></button>
                                                     <div class="dropdown-content">
                                                         <p><i class="fa fa-mobile-phone"></i> {this.state.data.contact}</p>
                                                     </div>    
                                                 </div>
                                                 }
                                         </div>
-                                    </div>
+                                    </div> 
                                 </div>
                                 <div class="row">
                                     <div class="col-md-7" style={{marginLeft:480}}>
